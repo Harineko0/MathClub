@@ -1,15 +1,15 @@
 package jp.mincra.mathclub;
 
-import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
+import java.io.*;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.*;
 import java.util.Properties;
 
 public class PropertyUtil {
 
-    private static final String INIT_FILE_PATH = new File(".").getAbsoluteFile().getParent()+"\\MathClub\\config.properties";
+    public static final int test = 10;
+
+    private static final String INIT_FILE_PATH = new File(".").getAbsoluteFile().getParent()+"/MathClub/config.properties";
     private static Properties properties;
 
     private PropertyUtil() throws  Exception {
@@ -49,8 +49,9 @@ public class PropertyUtil {
 
     //MathClubフォルダーの処理
     public static void setFiles() throws IOException {
-        File dir = new File(".\\MathClub");
-        File file = new File(".\\MathClub\\config.properties");
+        File dir = new File("./MathClub");
+        File file = new File("./MathClub/config.properties");
+        String charset = "UTF-8";
 
         //MathClubフォルダー作成
         if (dir.exists()) {
@@ -64,8 +65,15 @@ public class PropertyUtil {
             FileWriter fileWriter = new FileWriter(file);
 
             file.createNewFile();
-            fileWriter.write("#DiscordBOTのトークンを入力してください\ntoken=\n\n#DiscordAPPのCLIENT IDを入力してください\nclientid=");
-            fileWriter.close();
+
+            //文字コード指定
+            PrintWriter pw = new PrintWriter(
+                    new BufferedWriter(
+                            new OutputStreamWriter(
+                                    new FileOutputStream
+                                            (file),"UTF-8")));
+            pw.write("#DiscordBOTのトークンを入力してください\ntoken=\n\n#DiscordAPPのCLIENT IDを入力してください\nclientid=");
+            pw.close();
         }
     }
 }
