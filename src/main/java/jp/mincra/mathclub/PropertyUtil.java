@@ -64,7 +64,7 @@ public class PropertyUtil {
             FileWriter fileWriter = new FileWriter(file);
 
             file.createNewFile();
-            fileWriter.write("#DiscordBOTのトークンを入力してください\ntoken=Nzc2MDM2ODU3MDM3MTkzMjE3.X6vCpA.OgAutq3TNpdKvXLSfcrkgevaYX8");
+            fileWriter.write("#DiscordBOTのトークンを入力してください\ntoken=Nzc2MDM2ODU3MDM3MTkzMjE3.X6vCpA.apZR16-u86t0OZFEX0VGZC0iyLk");
             fileWriter.close();
         }
     }
