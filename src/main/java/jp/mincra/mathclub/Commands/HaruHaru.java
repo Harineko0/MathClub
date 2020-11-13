@@ -1,4 +1,4 @@
-package jp.mincra.mathclub.commands;
+package jp.mincra.mathclub.Commands;
 
 import java.util.Random;
 
