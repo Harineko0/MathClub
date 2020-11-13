@@ -7,10 +7,12 @@ import java.util.Properties;
 
 public class PropertyUtil {
 
-    public static final int test = 10;
 
     private static final String INIT_FILE_PATH = new File(".").getAbsoluteFile().getParent()+"/MathClub/config.properties";
-    private static Properties properties;
+    private static final Properties properties;
+    private static final File dir = new File("./MathClub");
+    private static final File file = new File("./MathClub/config.properties");
+    private static final String charset = "UTF-8";
 
     private PropertyUtil() throws  Exception {
     }
@@ -49,9 +51,6 @@ public class PropertyUtil {
 
     //MathClubフォルダーの処理
     public static void setFiles() throws IOException {
-        File dir = new File("./MathClub");
-        File file = new File("./MathClub/config.properties");
-        String charset = "UTF-8";
 
         //MathClubフォルダー作成
         if (dir.exists()) {
@@ -72,7 +71,7 @@ public class PropertyUtil {
                             new OutputStreamWriter(
                                     new FileOutputStream
                                             (file),"UTF-8")));
-            pw.write("#DiscordBOTのトークンを入力してください\ntoken=\n\n#DiscordAPPのCLIENT IDを入力してください\nclientid=");
+            pw.write("#DiscordBOTのトークンを入力してください\ntoken=");
             pw.close();
         }
     }

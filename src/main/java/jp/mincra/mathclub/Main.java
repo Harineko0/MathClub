@@ -6,6 +6,7 @@ import discord4j.core.event.domain.lifecycle.ReadyEvent;
 import discord4j.core.event.domain.message.MessageCreateEvent;
 import discord4j.core.object.entity.Message;
 import discord4j.core.object.entity.User;
+import jp.mincra.mathclub.commands.HaruHaru;
 
 import java.io.IOException;
 
@@ -13,12 +14,15 @@ class Main {
 
     //ロード
     public static final String token = PropertyUtil.getProperty("token");
-    public static final String clientid = PropertyUtil.getProperty("clientid");
 
-    public static void main(String args[]) throws IOException {
+    public static void main(String args[]) {
 
         //MathClubフォルダー作成
-        PropertyUtil.setFiles();
+        try {
+            PropertyUtil.setFiles();
+        } catch (IOException e) {
+            System.out.println(e);
+        }
 
         GatewayDiscordClient client = DiscordClientBuilder.create(token).build().login().block();
 
@@ -33,7 +37,7 @@ class Main {
                 .filter(message -> message.getAuthor().map(user -> !user.isBot()).orElse(false))
                 .filter(message -> message.getContent().equalsIgnoreCase("はるはる！"))
                 .flatMap(Message::getChannel)
-                .flatMap(channel -> channel.createMessage("はるはる！"))
+                .flatMap(channel -> channel.createMessage(HaruHaru.getString()+"！"))
                 .subscribe();
 
         client.onDisconnect().block();
