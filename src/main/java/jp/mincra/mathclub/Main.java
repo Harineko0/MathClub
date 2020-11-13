@@ -1,39 +1,41 @@
 package jp.mincra.mathclub;
 
-import com.jagrosh.jdautilities.command.CommandClientBuilder;
-import com.jagrosh.jdautilities.command.CommandClient;
-import net.dv8tion.jda.api.AccountType;
-import net.dv8tion.jda.api.JDA;
-import net.dv8tion.jda.api.JDABuilder;
-import net.dv8tion.jda.api.OnlineStatus;
-import net.dv8tion.jda.api.entities.Activity;
+import discord4j.core.DiscordClientBuilder;
+import discord4j.core.GatewayDiscordClient;
+import discord4j.core.event.domain.lifecycle.ReadyEvent;
+import discord4j.core.event.domain.message.MessageCreateEvent;
+import discord4j.core.object.entity.Message;
+import discord4j.core.object.entity.User;
 
-import javax.security.auth.login.LoginException;
 import java.io.IOException;
 
 class Main {
 
-    private static JDA jda;
     //ロード
     public static final String token = PropertyUtil.getProperty("token");
     public static final String clientid = PropertyUtil.getProperty("clientid");
-    private static final String COMMAND_PREFIX = "!"; // コマンドの接頭辞
 
-    public static void main(String args[]) throws IOException, LoginException {
+    public static void main(String args[]) throws IOException {
+
         //MathClubフォルダー作成
         PropertyUtil.setFiles();
 
-        // コマンドを扱うイベントリスナを生成
-        CommandClient commandClient = new CommandClientBuilder()
-                .setPrefix(COMMAND_PREFIX) // コマンドの接頭辞
-                .setStatus(OnlineStatus.ONLINE) // オンラインステータスの設定
-                .setActivity(Activity.playing("数研BOT")) // ステータスの設定（視聴中、プレイ中など）
-                .setOwnerId(clientid)
-                .build();
+        GatewayDiscordClient client = DiscordClientBuilder.create(token).build().login().block();
 
-        jda = new JDABuilder(AccountType.BOT)
-                .setToken(token) // トークンを設定
-                .addEventListeners(commandClient) // commandClientを設定
-                .build();
+        client.getEventDispatcher().on(ReadyEvent.class)
+                .subscribe(event -> {
+                    User self = event.getSelf();
+                    System.out.println(String.format("Logged in as %s#%s", self.getUsername(), self.getDiscriminator()));
+                });
+
+        client.getEventDispatcher().on(MessageCreateEvent.class)
+                .map(MessageCreateEvent::getMessage)
+                .filter(message -> message.getAuthor().map(user -> !user.isBot()).orElse(false))
+                .filter(message -> message.getContent().equalsIgnoreCase("はるはる！"))
+                .flatMap(Message::getChannel)
+                .flatMap(channel -> channel.createMessage("はるはる！"))
+                .subscribe();
+
+        client.onDisconnect().block();
     }
 }
