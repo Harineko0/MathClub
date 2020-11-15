@@ -1,0 +1,12 @@
+{
+  "commands": [
+    {
+      "command": "はるはる！",
+      "description": "'は'と'る'の文字からランダムな文字列を生成します。"
+    },
+    {
+      "command": "help",
+      "description": "ヘルプを表示します。"
+    }
+  ]
+}

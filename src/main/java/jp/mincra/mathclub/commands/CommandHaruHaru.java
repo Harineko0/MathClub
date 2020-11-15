@@ -2,16 +2,17 @@ package jp.mincra.mathclub.commands;
 
 import discord4j.core.object.entity.Message;
 import discord4j.core.object.entity.channel.MessageChannel;
-import jp.mincra.mathclub.util.MathClubConfig;
+import jp.mincra.mathclub.util.MathClubProperty;
 
 import java.util.Random;
 
 public class CommandHaruHaru {
 
     public static void createMessage(Message message) {
-        MessageChannel channel = message.getChannel().block();
-        if (message.getChannelId().toString().equals("Snowflake{"+MathClubConfig.getConfig("channel_HaruHaru")+"}")) {
 
+        MessageChannel channel = message.getChannel().block();
+
+        if (message.getChannelId().toString().equals("Snowflake{"+ MathClubProperty.getProperty("channel_HaruHaru")+"}")) {
             channel.createMessage(getString()+"！").block();
         }
     }

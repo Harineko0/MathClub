@@ -11,7 +11,6 @@ public class Event {
         if (message.getAuthor().map(user -> !user.isBot()).orElse(false)) {
 
             switch (message.getContent()){
-
                 case "はるはる！":
                     CommandHaruHaru.createMessage(message);
 

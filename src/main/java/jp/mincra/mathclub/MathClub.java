@@ -6,7 +6,7 @@ import discord4j.core.event.domain.lifecycle.ReadyEvent;
 import discord4j.core.event.domain.message.MessageCreateEvent;
 import discord4j.core.object.entity.Message;
 import discord4j.core.object.entity.User;
-import jp.mincra.mathclub.util.MathClubConfig;
+import jp.mincra.mathclub.util.MathClubProperty;
 
 import java.io.IOException;
 
@@ -14,15 +14,15 @@ class MathClub {
 
     public static void main(String args[]) {
 
-        //MathClubフォルダー作成
+        //ファイル作成
         try {
-            MathClubConfig.setFiles();
+            MathClubProperty.setFiles();
         } catch (IOException e) {
             System.out.println(e);
         }
 
         //ロード
-        final String token = MathClubConfig.getConfig("token");
+        final String token = MathClubProperty.getProperty("token");
         GatewayDiscordClient client = DiscordClientBuilder.create(token).build().login().block();
 
 
