@@ -6,25 +6,25 @@ import discord4j.core.event.domain.lifecycle.ReadyEvent;
 import discord4j.core.event.domain.message.MessageCreateEvent;
 import discord4j.core.object.entity.Message;
 import discord4j.core.object.entity.User;
-import jp.mincra.mathclub.Commands.HaruHaru;
+import jp.mincra.mathclub.util.MathClubConfig;
 
 import java.io.IOException;
 
-class Main {
-
-    //ロード
-    public static final String token = PropertyUtil.getProperty("token");
+class MathClub {
 
     public static void main(String args[]) {
 
         //MathClubフォルダー作成
         try {
-            PropertyUtil.setFiles();
+            MathClubConfig.setFiles();
         } catch (IOException e) {
             System.out.println(e);
         }
 
+        //ロード
+        final String token = MathClubConfig.getConfig("token");
         GatewayDiscordClient client = DiscordClientBuilder.create(token).build().login().block();
+
 
         client.getEventDispatcher().on(ReadyEvent.class)
                 .subscribe(event -> {
@@ -32,13 +32,11 @@ class Main {
                     System.out.println(String.format("Logged in as %s#%s", self.getUsername(), self.getDiscriminator()));
                 });
 
-        client.getEventDispatcher().on(MessageCreateEvent.class)
-                .map(MessageCreateEvent::getMessage)
-                .filter(message -> message.getAuthor().map(user -> !user.isBot()).orElse(false))
-                .filter(message -> message.getContent().equalsIgnoreCase("はるはる！"))
-                .flatMap(Message::getChannel)
-                .flatMap(channel -> channel.createMessage(HaruHaru.getString()+"！"))
-                .subscribe();
+        //メッセージ送信時ののイベント
+        client.on(MessageCreateEvent.class).subscribe(event -> {
+            final Message message = event.getMessage();
+            Event.MessageCreate(message);
+        });
 
         client.onDisconnect().block();
     }

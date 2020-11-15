@@ -1,21 +1,18 @@
-package jp.mincra.mathclub;
+package jp.mincra.mathclub.util;
 
 import java.io.*;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.*;
 import java.util.Properties;
 
-public class PropertyUtil {
+public class MathClubConfig {
 
 
-    private static final String INIT_FILE_PATH = new File(".").getAbsoluteFile().getParent()+"/MathClub/config.properties";
+    private static final String INIT_FILE_PATH = new File(".").getAbsoluteFile().getParent()+"/MathClub.properties";
     private static final Properties properties;
-    private static final File dir = new File("./MathClub");
-    private static final File file = new File("./MathClub/config.properties");
+    private static final File dir = new File(".");
+    private static final File file = new File("./MathClub.properties");
     private static final String charset = "UTF-8";
-
-    private PropertyUtil() throws  Exception {
-    }
 
     static {
         properties = new Properties();
@@ -33,8 +30,8 @@ public class PropertyUtil {
      * @param key キー
      * @return 値
      */
-    public static String getProperty(final String key){
-        return getProperty(key, "");
+    public static String getConfig(final String key){
+        return getConfig(key, "");
     }
 
     /**
@@ -45,8 +42,15 @@ public class PropertyUtil {
      * @return キーが存在しない場合、デフォルト値
      *          存在する場合、値
      */
-    public static String getProperty(final String key, final String defaultValue) {
-        return properties.getProperty(key, defaultValue);
+    public static String getConfig(final String key, final String defaultValue) {
+
+        String result = properties.getProperty(key, defaultValue);
+
+        if (result.isEmpty()) {
+            System.out.println(key+"が記述されていません");
+        }
+
+        return result;
     }
 
     //MathClubフォルダーの処理
@@ -71,7 +75,7 @@ public class PropertyUtil {
                             new OutputStreamWriter(
                                     new FileOutputStream
                                             (file),"UTF-8")));
-            pw.write("#DiscordBOTのトークンを入力してください\ntoken=");
+            pw.write("#DiscordBOTのトークンを入力してください\ntoken=\n\n#はるはる！コマンドを実行するチャンネルIDを入力してください\nchannel_HaruHaru=");
             pw.close();
         }
     }
