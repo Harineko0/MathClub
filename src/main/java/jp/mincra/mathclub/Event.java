@@ -4,6 +4,7 @@ import discord4j.core.object.entity.Message;
 import jp.mincra.mathclub.commands.CommandHaruHaru;
 import jp.mincra.mathclub.commands.CommandHelp;
 import jp.mincra.mathclub.commands.CommandReload;
+import jp.mincra.mathclub.commands.CommandSchedule;
 import jp.mincra.mathclub.util.MathClubProperty;
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -27,6 +28,10 @@ public class Event {
 
                 case "!reload":
                     CommandReload.CommandReload(message);
+                    break;
+
+                case "!test":
+                    CommandSchedule.CommandSchedule();
                     break;
             }
         }

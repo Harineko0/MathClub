@@ -7,7 +7,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2f036e4a-11f3-4b6b-8f7c-ebe5c0662228" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/jp/mincra/mathclub/commands/CommandReload.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/jp/mincra/mathclub/commands/CommandSchedule.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/MathClub/MathClub.json" beforeDir="false" afterPath="$PROJECT_DIR$/MathClub/MathClub.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/jp/mincra/mathclub/Event.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/jp/mincra/mathclub/Event.java" afterDir="false" />
@@ -26,6 +26,7 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="UPDATE_TYPE" value="MERGE" />
   </component>
   <component name="MavenImportPreferences">
     <option name="importingSettings">
@@ -107,7 +108,14 @@
       <option name="project" value="LOCAL" />
       <updated>1605787350544</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="!reloadコマンドのメッセージをjsonから参照するように変更">
+      <created>1605789581599</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1605789581599</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -125,7 +133,8 @@
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value=".propertiesを全て.jsonに移行" />
     <MESSAGE value="!reloadコマンドを追加" />
-    <option name="LAST_COMMIT_MESSAGE" value="!reloadコマンドを追加" />
+    <MESSAGE value="!reloadコマンドのメッセージをjsonから参照するように変更" />
+    <option name="LAST_COMMIT_MESSAGE" value="!reloadコマンドのメッセージをjsonから参照するように変更" />
   </component>
   <component name="WindowStateProjectService">
     <state x="780" y="22" key="#Project_Structure" timestamp="1605110405330">
@@ -148,38 +157,38 @@
       <screen x="0" y="0" width="1707" height="720" />
     </state>
     <state x="890" y="144" key="#com.intellij.ide.util.TreeClassChooserDialog/0.0.1707.720@0.0.1707.720" timestamp="1605111224330" />
-    <state x="888" y="109" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1605784603597">
+    <state x="888" y="109" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1605790568906">
       <screen x="0" y="0" width="1707" height="720" />
     </state>
-    <state x="888" y="109" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1707.720@0.0.1707.720" timestamp="1605784603597" />
+    <state x="888" y="109" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1707.720@0.0.1707.720" timestamp="1605790568906" />
     <state x="958" y="113" key="#com.intellij.refactoring.typeMigration.ui.FailedConversionsDialog" timestamp="1605417457971">
       <screen x="0" y="0" width="1707" height="720" />
     </state>
     <state x="958" y="113" key="#com.intellij.refactoring.typeMigration.ui.FailedConversionsDialog/0.0.1707.720@0.0.1707.720" timestamp="1605417457971" />
-    <state x="0" y="0" key="CommitChangelistDialog2" timestamp="1605787350068">
+    <state x="0" y="0" key="CommitChangelistDialog2" timestamp="1605789581130">
       <screen x="0" y="0" width="1707" height="720" />
     </state>
-    <state x="0" y="0" key="CommitChangelistDialog2/0.0.1707.720@0.0.1707.720" timestamp="1605787350068" />
+    <state x="0" y="0" key="CommitChangelistDialog2/0.0.1707.720@0.0.1707.720" timestamp="1605789581130" />
     <state x="968" y="119" key="FileChooserDialogImpl" timestamp="1605265783953">
       <screen x="0" y="0" width="1707" height="720" />
     </state>
     <state x="968" y="119" key="FileChooserDialogImpl/0.0.1707.720@0.0.1707.720" timestamp="1605265783953" />
-    <state width="1012" height="142" key="GridCell.Tab.0.bottom" timestamp="1605789501134">
+    <state width="1012" height="142" key="GridCell.Tab.0.bottom" timestamp="1605789583321">
       <screen x="0" y="0" width="1707" height="720" />
     </state>
-    <state width="1012" height="142" key="GridCell.Tab.0.bottom/0.0.1707.720@0.0.1707.720" timestamp="1605789501134" />
-    <state width="1012" height="142" key="GridCell.Tab.0.center" timestamp="1605789501134">
+    <state width="1012" height="142" key="GridCell.Tab.0.bottom/0.0.1707.720@0.0.1707.720" timestamp="1605789583321" />
+    <state width="1012" height="142" key="GridCell.Tab.0.center" timestamp="1605789583321">
       <screen x="0" y="0" width="1707" height="720" />
     </state>
-    <state width="1012" height="142" key="GridCell.Tab.0.center/0.0.1707.720@0.0.1707.720" timestamp="1605789501134" />
-    <state width="1012" height="142" key="GridCell.Tab.0.left" timestamp="1605789501134">
+    <state width="1012" height="142" key="GridCell.Tab.0.center/0.0.1707.720@0.0.1707.720" timestamp="1605789583321" />
+    <state width="1012" height="142" key="GridCell.Tab.0.left" timestamp="1605789583321">
       <screen x="0" y="0" width="1707" height="720" />
     </state>
-    <state width="1012" height="142" key="GridCell.Tab.0.left/0.0.1707.720@0.0.1707.720" timestamp="1605789501134" />
-    <state width="1012" height="142" key="GridCell.Tab.0.right" timestamp="1605789501134">
+    <state width="1012" height="142" key="GridCell.Tab.0.left/0.0.1707.720@0.0.1707.720" timestamp="1605789583321" />
+    <state width="1012" height="142" key="GridCell.Tab.0.right" timestamp="1605789583321">
       <screen x="0" y="0" width="1707" height="720" />
     </state>
-    <state width="1012" height="142" key="GridCell.Tab.0.right/0.0.1707.720@0.0.1707.720" timestamp="1605789501134" />
+    <state width="1012" height="142" key="GridCell.Tab.0.right/0.0.1707.720@0.0.1707.720" timestamp="1605789583321" />
     <state width="1042" height="216" key="GridCell.Tab.1.bottom" timestamp="1605446278696">
       <screen x="0" y="0" width="1707" height="720" />
     </state>
@@ -208,10 +217,10 @@
       <screen x="0" y="0" width="1707" height="720" />
     </state>
     <state x="842" y="184" key="com.intellij.ide.util.TipDialog/0.0.1707.720@0.0.1707.720" timestamp="1605784006040" />
-    <state x="997" y="281" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1605789200696">
+    <state x="997" y="281" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1605790488641">
       <screen x="0" y="0" width="1707" height="720" />
     </state>
-    <state x="997" y="281" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1707.720@0.0.1707.720" timestamp="1605789200696" />
+    <state x="997" y="281" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1707.720@0.0.1707.720" timestamp="1605790488641" />
     <state x="511" y="97" key="new project wizard" timestamp="1605259502800">
       <screen x="0" y="0" width="1707" height="720" />
     </state>
