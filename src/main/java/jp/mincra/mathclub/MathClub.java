@@ -6,9 +6,15 @@ import discord4j.core.event.domain.lifecycle.ReadyEvent;
 import discord4j.core.event.domain.message.MessageCreateEvent;
 import discord4j.core.object.entity.Message;
 import discord4j.core.object.entity.User;
+import jp.mincra.mathclub.commands.CommandSchedule;
 import jp.mincra.mathclub.util.MathClubProperty;
 
 import java.io.IOException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Timer;
+import java.util.TimerTask;
 
 public class MathClub {
 
@@ -27,6 +33,9 @@ public class MathClub {
 
         //client作成
         GatewayDiscordClient client = DiscordClientBuilder.create(token).build().login().block();
+
+        //定期実行
+        CommandSchedule.CommandSchedule();
 
         //ログイン時のイベント
         client.getEventDispatcher().on(ReadyEvent.class)
