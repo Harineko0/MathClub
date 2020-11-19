@@ -25,7 +25,7 @@ public class MathClub {
         //tokenロード
         String token = MathClubProperty.jsonNode.get("properties").get("token").asText();
 
-        System.out.println(token);
+        //client作成
         GatewayDiscordClient client = DiscordClientBuilder.create(token).build().login().block();
 
         //ログイン時のイベント

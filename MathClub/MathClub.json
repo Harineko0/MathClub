@@ -11,8 +11,12 @@
       "description": "'は'と'る'の文字からランダムな文字列を生成します。"
     },
     {
-      "command": "help",
+      "command": "!help",
       "description": "ヘルプを表示します。"
+    },
+    {
+      "command": "!reload",
+      "description": "設定を再読み込みします。"
     }
   ]
 }

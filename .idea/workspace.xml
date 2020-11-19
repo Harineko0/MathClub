@@ -7,18 +7,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2f036e4a-11f3-4b6b-8f7c-ebe5c0662228" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/artifacts/MathClub_jar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/artifacts/MathClub_jar.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/MathClub/MathClub.json" beforeDir="false" afterPath="$PROJECT_DIR$/MathClub/MathClub.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MathClub/MathClub.properties" beforeDir="false" afterPath="$PROJECT_DIR$/MathClub/MathClub.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/jp/mincra/mathclub/Event.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/jp/mincra/mathclub/Event.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/jp/mincra/mathclub/MathClub.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/jp/mincra/mathclub/MathClub.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/jp/mincra/mathclub/commands/CommandHaruHaru.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/jp/mincra/mathclub/commands/CommandHaruHaru.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/jp/mincra/mathclub/commands/CommandHelp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/jp/mincra/mathclub/commands/CommandHelp.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/jp/mincra/mathclub/util/MathClubProperty.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/jp/mincra/mathclub/util/MathClubProperty.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/META-INF/MANIFEST.MF" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/META-INF/MANIFEST.MF" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/jp/mincra/mathclub/Main.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/jp/mincra/mathclub/PropertyUtil.class" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -101,10 +93,20 @@
       <option name="presentableId" value="Default" />
       <updated>1605091768364</updated>
     </task>
+    <task id="LOCAL-00001" summary=".propertiesを全て.jsonに移行">
+      <created>1605786797244</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1605786797244</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+    <MESSAGE value=".propertiesを全て.jsonに移行" />
+    <option name="LAST_COMMIT_MESSAGE" value=".propertiesを全て.jsonに移行" />
   </component>
   <component name="WindowStateProjectService">
     <state x="780" y="22" key="#Project_Structure" timestamp="1605110405330">
@@ -135,30 +137,30 @@
       <screen x="0" y="0" width="1707" height="720" />
     </state>
     <state x="958" y="113" key="#com.intellij.refactoring.typeMigration.ui.FailedConversionsDialog/0.0.1707.720@0.0.1707.720" timestamp="1605417457971" />
-    <state x="0" y="0" key="CommitChangelistDialog2" timestamp="1605707980110">
+    <state x="0" y="0" key="CommitChangelistDialog2" timestamp="1605787329900">
       <screen x="0" y="0" width="1707" height="720" />
     </state>
-    <state x="0" y="0" key="CommitChangelistDialog2/0.0.1707.720@0.0.1707.720" timestamp="1605707980110" />
+    <state x="0" y="0" key="CommitChangelistDialog2/0.0.1707.720@0.0.1707.720" timestamp="1605787329900" />
     <state x="968" y="119" key="FileChooserDialogImpl" timestamp="1605265783953">
       <screen x="0" y="0" width="1707" height="720" />
     </state>
     <state x="968" y="119" key="FileChooserDialogImpl/0.0.1707.720@0.0.1707.720" timestamp="1605265783953" />
-    <state width="1012" height="142" key="GridCell.Tab.0.bottom" timestamp="1605786744278">
+    <state width="1012" height="142" key="GridCell.Tab.0.bottom" timestamp="1605787330983">
       <screen x="0" y="0" width="1707" height="720" />
     </state>
-    <state width="1012" height="142" key="GridCell.Tab.0.bottom/0.0.1707.720@0.0.1707.720" timestamp="1605786744278" />
-    <state width="1012" height="142" key="GridCell.Tab.0.center" timestamp="1605786744278">
+    <state width="1012" height="142" key="GridCell.Tab.0.bottom/0.0.1707.720@0.0.1707.720" timestamp="1605787330983" />
+    <state width="1012" height="142" key="GridCell.Tab.0.center" timestamp="1605787330983">
       <screen x="0" y="0" width="1707" height="720" />
     </state>
-    <state width="1012" height="142" key="GridCell.Tab.0.center/0.0.1707.720@0.0.1707.720" timestamp="1605786744278" />
-    <state width="1012" height="142" key="GridCell.Tab.0.left" timestamp="1605786744278">
+    <state width="1012" height="142" key="GridCell.Tab.0.center/0.0.1707.720@0.0.1707.720" timestamp="1605787330983" />
+    <state width="1012" height="142" key="GridCell.Tab.0.left" timestamp="1605787330983">
       <screen x="0" y="0" width="1707" height="720" />
     </state>
-    <state width="1012" height="142" key="GridCell.Tab.0.left/0.0.1707.720@0.0.1707.720" timestamp="1605786744278" />
-    <state width="1012" height="142" key="GridCell.Tab.0.right" timestamp="1605786744278">
+    <state width="1012" height="142" key="GridCell.Tab.0.left/0.0.1707.720@0.0.1707.720" timestamp="1605787330983" />
+    <state width="1012" height="142" key="GridCell.Tab.0.right" timestamp="1605787330983">
       <screen x="0" y="0" width="1707" height="720" />
     </state>
-    <state width="1012" height="142" key="GridCell.Tab.0.right/0.0.1707.720@0.0.1707.720" timestamp="1605786744278" />
+    <state width="1012" height="142" key="GridCell.Tab.0.right/0.0.1707.720@0.0.1707.720" timestamp="1605787330983" />
     <state width="1042" height="216" key="GridCell.Tab.1.bottom" timestamp="1605446278696">
       <screen x="0" y="0" width="1707" height="720" />
     </state>
