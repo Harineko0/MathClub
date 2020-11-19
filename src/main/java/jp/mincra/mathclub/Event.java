@@ -13,9 +13,11 @@ public class Event {
             switch (message.getContent()){
                 case "はるはる！":
                     CommandHaruHaru.createMessage(message);
+                    break;
 
                 case "help":
                     CommandHelp.CommandHelp(message);
+                    break;
             }
         }
     }

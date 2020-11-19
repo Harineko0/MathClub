@@ -1,7 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="ArtifactsWorkspaceSettings">
+    <artifacts-to-build>
+      <artifact name="MathClub:jar" />
+    </artifacts-to-build>
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="2f036e4a-11f3-4b6b-8f7c-ebe5c0662228" name="Default Changelist" comment="" />
+    <list default="true" id="2f036e4a-11f3-4b6b-8f7c-ebe5c0662228" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/artifacts/MathClub_jar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/artifacts/MathClub_jar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MathClub/MathClub.json" beforeDir="false" afterPath="$PROJECT_DIR$/MathClub/MathClub.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MathClub/MathClub.properties" beforeDir="false" afterPath="$PROJECT_DIR$/MathClub/MathClub.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/jp/mincra/mathclub/Event.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/jp/mincra/mathclub/Event.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/jp/mincra/mathclub/MathClub.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/jp/mincra/mathclub/MathClub.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/jp/mincra/mathclub/commands/CommandHaruHaru.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/jp/mincra/mathclub/commands/CommandHaruHaru.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/jp/mincra/mathclub/commands/CommandHelp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/jp/mincra/mathclub/commands/CommandHelp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/jp/mincra/mathclub/util/MathClubProperty.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/jp/mincra/mathclub/util/MathClubProperty.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/META-INF/MANIFEST.MF" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/META-INF/MANIFEST.MF" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/jp/mincra/mathclub/Main.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/jp/mincra/mathclub/PropertyUtil.class" beforeDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -14,6 +32,9 @@
       </list>
     </option>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="MavenImportPreferences">
     <option name="importingSettings">
       <MavenImportingSettings>
@@ -22,16 +43,26 @@
     </option>
   </component>
   <component name="ProjectId" id="1k8oqLnsXIxiwMi3pVKyzEXef2U" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showExcludedFiles" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="GenerateAntBuildDialog.backupFiles" value="true" />
+    <property name="GenerateAntBuildDialog.enableUiFormCompile" value="true" />
+    <property name="GenerateAntBuildDialog.forceTargetJdk" value="true" />
+    <property name="GenerateAntBuildDialog.outputFileNameProperty" value="mathclub" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="project.structure.last.edited" value="Project" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/resources" />
+    <property name="project.structure.last.edited" value="Artifacts" />
     <property name="project.structure.proportion" value="0.15" />
-    <property name="project.structure.side.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="editor.preferences.import" />
   </component>
   <component name="RecentsManager">
@@ -40,8 +71,8 @@
     </key>
   </component>
   <component name="RunManager">
-    <configuration name="Main" type="Application" factoryName="アプリケーション" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="jp.mincra.mathclub.Main" />
+    <configuration name="MathClub" type="Application" factoryName="アプリケーション" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="jp.mincra.mathclub.MathClub" />
       <module name="MathClub" />
       <extension name="coverage">
         <pattern>
@@ -55,7 +86,7 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="アプリケーション.Main" />
+        <item itemvalue="アプリケーション.MathClub" />
       </list>
     </recent_temporary>
   </component>
@@ -72,34 +103,105 @@
     </task>
     <servers />
   </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+  </component>
   <component name="WindowStateProjectService">
-    <state width="1005" height="173" key="GridCell.Tab.0.bottom" timestamp="1605102101922">
+    <state x="780" y="22" key="#Project_Structure" timestamp="1605110405330">
       <screen x="0" y="0" width="1707" height="720" />
     </state>
-    <state width="1005" height="173" key="GridCell.Tab.0.bottom/0.0.1707.720@0.0.1707.720" timestamp="1605102101922" />
-    <state width="1005" height="173" key="GridCell.Tab.0.center" timestamp="1605102101922">
+    <state x="780" y="22" key="#Project_Structure/0.0.1707.720@0.0.1707.720" timestamp="1605110405330" />
+    <state x="888" y="117" key="#com.intellij.codeInsight.editorActions.RestoreReferencesDialog" timestamp="1605444692048">
       <screen x="0" y="0" width="1707" height="720" />
     </state>
-    <state width="1005" height="173" key="GridCell.Tab.0.center/0.0.1707.720@0.0.1707.720" timestamp="1605102101922" />
-    <state width="1005" height="173" key="GridCell.Tab.0.left" timestamp="1605102101922">
+    <state x="888" y="117" key="#com.intellij.codeInsight.editorActions.RestoreReferencesDialog/0.0.1707.720@0.0.1707.720" timestamp="1605444692048" />
+    <state x="618" y="19" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1605786000226">
       <screen x="0" y="0" width="1707" height="720" />
     </state>
-    <state width="1005" height="173" key="GridCell.Tab.0.left/0.0.1707.720@0.0.1707.720" timestamp="1605102101922" />
-    <state width="1005" height="173" key="GridCell.Tab.0.right" timestamp="1605102101922">
+    <state x="618" y="19" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1707.720@0.0.1707.720" timestamp="1605786000226" />
+    <state x="1011" y="73" key="#com.intellij.ide.util.MemberChooser" timestamp="1605344524639">
       <screen x="0" y="0" width="1707" height="720" />
     </state>
-    <state width="1005" height="173" key="GridCell.Tab.0.right/0.0.1707.720@0.0.1707.720" timestamp="1605102101922" />
-    <state x="641" y="0" key="SettingsEditor" timestamp="1605101400956">
+    <state x="1011" y="73" key="#com.intellij.ide.util.MemberChooser/0.0.1707.720@0.0.1707.720" timestamp="1605344524639" />
+    <state x="890" y="144" key="#com.intellij.ide.util.TreeClassChooserDialog" timestamp="1605111224330">
       <screen x="0" y="0" width="1707" height="720" />
     </state>
-    <state x="641" y="0" key="SettingsEditor/0.0.1707.720@0.0.1707.720" timestamp="1605101400956" />
-    <state x="842" y="184" key="com.intellij.ide.util.TipDialog" timestamp="1605101421600">
+    <state x="890" y="144" key="#com.intellij.ide.util.TreeClassChooserDialog/0.0.1707.720@0.0.1707.720" timestamp="1605111224330" />
+    <state x="888" y="109" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1605784603597">
       <screen x="0" y="0" width="1707" height="720" />
     </state>
-    <state x="842" y="184" key="com.intellij.ide.util.TipDialog/0.0.1707.720@0.0.1707.720" timestamp="1605101421600" />
-    <state x="665" y="103" key="new project wizard" timestamp="1605093897322">
+    <state x="888" y="109" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1707.720@0.0.1707.720" timestamp="1605784603597" />
+    <state x="958" y="113" key="#com.intellij.refactoring.typeMigration.ui.FailedConversionsDialog" timestamp="1605417457971">
       <screen x="0" y="0" width="1707" height="720" />
     </state>
-    <state x="665" y="103" key="new project wizard/0.0.1707.720@0.0.1707.720" timestamp="1605093897322" />
+    <state x="958" y="113" key="#com.intellij.refactoring.typeMigration.ui.FailedConversionsDialog/0.0.1707.720@0.0.1707.720" timestamp="1605417457971" />
+    <state x="0" y="0" key="CommitChangelistDialog2" timestamp="1605707980110">
+      <screen x="0" y="0" width="1707" height="720" />
+    </state>
+    <state x="0" y="0" key="CommitChangelistDialog2/0.0.1707.720@0.0.1707.720" timestamp="1605707980110" />
+    <state x="968" y="119" key="FileChooserDialogImpl" timestamp="1605265783953">
+      <screen x="0" y="0" width="1707" height="720" />
+    </state>
+    <state x="968" y="119" key="FileChooserDialogImpl/0.0.1707.720@0.0.1707.720" timestamp="1605265783953" />
+    <state width="1012" height="142" key="GridCell.Tab.0.bottom" timestamp="1605786744278">
+      <screen x="0" y="0" width="1707" height="720" />
+    </state>
+    <state width="1012" height="142" key="GridCell.Tab.0.bottom/0.0.1707.720@0.0.1707.720" timestamp="1605786744278" />
+    <state width="1012" height="142" key="GridCell.Tab.0.center" timestamp="1605786744278">
+      <screen x="0" y="0" width="1707" height="720" />
+    </state>
+    <state width="1012" height="142" key="GridCell.Tab.0.center/0.0.1707.720@0.0.1707.720" timestamp="1605786744278" />
+    <state width="1012" height="142" key="GridCell.Tab.0.left" timestamp="1605786744278">
+      <screen x="0" y="0" width="1707" height="720" />
+    </state>
+    <state width="1012" height="142" key="GridCell.Tab.0.left/0.0.1707.720@0.0.1707.720" timestamp="1605786744278" />
+    <state width="1012" height="142" key="GridCell.Tab.0.right" timestamp="1605786744278">
+      <screen x="0" y="0" width="1707" height="720" />
+    </state>
+    <state width="1012" height="142" key="GridCell.Tab.0.right/0.0.1707.720@0.0.1707.720" timestamp="1605786744278" />
+    <state width="1042" height="216" key="GridCell.Tab.1.bottom" timestamp="1605446278696">
+      <screen x="0" y="0" width="1707" height="720" />
+    </state>
+    <state width="1042" height="216" key="GridCell.Tab.1.bottom/0.0.1707.720@0.0.1707.720" timestamp="1605446278696" />
+    <state width="1042" height="216" key="GridCell.Tab.1.center" timestamp="1605446278696">
+      <screen x="0" y="0" width="1707" height="720" />
+    </state>
+    <state width="1042" height="216" key="GridCell.Tab.1.center/0.0.1707.720@0.0.1707.720" timestamp="1605446278696" />
+    <state width="1042" height="216" key="GridCell.Tab.1.left" timestamp="1605446278696">
+      <screen x="0" y="0" width="1707" height="720" />
+    </state>
+    <state width="1042" height="216" key="GridCell.Tab.1.left/0.0.1707.720@0.0.1707.720" timestamp="1605446278696" />
+    <state width="1042" height="216" key="GridCell.Tab.1.right" timestamp="1605446278696">
+      <screen x="0" y="0" width="1707" height="720" />
+    </state>
+    <state width="1042" height="216" key="GridCell.Tab.1.right/0.0.1707.720@0.0.1707.720" timestamp="1605446278696" />
+    <state x="718" y="19" key="Maven.ArtifactSearchDialog" timestamp="1605595690950">
+      <screen x="0" y="0" width="1707" height="720" />
+    </state>
+    <state x="718" y="19" key="Maven.ArtifactSearchDialog/0.0.1707.720@0.0.1707.720" timestamp="1605595690950" />
+    <state x="315" y="0" key="SettingsEditor" timestamp="1605265795229">
+      <screen x="0" y="0" width="1707" height="720" />
+    </state>
+    <state x="315" y="0" key="SettingsEditor/0.0.1707.720@0.0.1707.720" timestamp="1605265795229" />
+    <state x="842" y="184" key="com.intellij.ide.util.TipDialog" timestamp="1605784006040">
+      <screen x="0" y="0" width="1707" height="720" />
+    </state>
+    <state x="842" y="184" key="com.intellij.ide.util.TipDialog/0.0.1707.720@0.0.1707.720" timestamp="1605784006040" />
+    <state x="997" y="281" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1605594688558">
+      <screen x="0" y="0" width="1707" height="720" />
+    </state>
+    <state x="997" y="281" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1707.720@0.0.1707.720" timestamp="1605594688558" />
+    <state x="511" y="97" key="new project wizard" timestamp="1605259502800">
+      <screen x="0" y="0" width="1707" height="720" />
+    </state>
+    <state x="511" y="97" key="new project wizard/0.0.1707.720@0.0.1707.720" timestamp="1605259502800" />
+    <state x="834" y="163" key="run.anything.popup" timestamp="1605786480804">
+      <screen x="0" y="0" width="1707" height="720" />
+    </state>
+    <state x="834" y="163" key="run.anything.popup/0.0.1707.720@0.0.1707.720" timestamp="1605786480804" />
+    <state x="516" y="41" width="672" height="678" key="search.everywhere.popup" timestamp="1605786282638">
+      <screen x="0" y="0" width="1707" height="720" />
+    </state>
+    <state x="516" y="41" width="672" height="678" key="search.everywhere.popup/0.0.1707.720@0.0.1707.720" timestamp="1605786282638" />
   </component>
 </project>

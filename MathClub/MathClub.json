@@ -1,4 +1,10 @@
 {
+  "properties": {
+    "token": "Nzc2MDM2ODU3MDM3MTkzMjE3.X6vCpA.EXHbWuPs_8HFydcgOKQ3N4YUr-c",
+    "channel": {
+      "HaruHaru": "776296010627416064"
+    }
+  },
   "commands": [
     {
       "command": "はるはる！",

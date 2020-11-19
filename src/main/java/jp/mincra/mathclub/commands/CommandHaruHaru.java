@@ -12,7 +12,10 @@ public class CommandHaruHaru {
 
         MessageChannel channel = message.getChannel().block();
 
-        if (message.getChannelId().toString().equals("Snowflake{"+ MathClubProperty.getProperty("channel_HaruHaru")+"}")) {
+        //HaruHaruチャンネルのID読み込み
+        String HaruHaru = MathClubProperty.jsonNode.get("properties").get("channel").get("HaruHaru").asText();
+
+        if (message.getChannelId().toString().equals("Snowflake{"+ HaruHaru +"}")) {
             channel.createMessage(getString()+"！").block();
         }
     }

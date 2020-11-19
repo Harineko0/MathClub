@@ -10,22 +10,25 @@ import jp.mincra.mathclub.util.MathClubProperty;
 
 import java.io.IOException;
 
-class MathClub {
+public class MathClub {
 
     public static void main(String args[]) {
 
-        //ファイル作成
-        try {
-            MathClubProperty.setFiles();
+        //JSONロード
+        try{
+            MathClubProperty.setPropertyFile();
+            MathClubProperty.reloadProperty();
         } catch (IOException e) {
-            System.out.println(e);
+            e.printStackTrace();
         }
 
-        //ロード
-        final String token = MathClubProperty.getProperty("token");
+        //tokenロード
+        String token = MathClubProperty.jsonNode.get("properties").get("token").asText();
+
+        System.out.println(token);
         GatewayDiscordClient client = DiscordClientBuilder.create(token).build().login().block();
 
-
+        //ログイン時のイベント
         client.getEventDispatcher().on(ReadyEvent.class)
                 .subscribe(event -> {
                     User self = event.getSelf();
