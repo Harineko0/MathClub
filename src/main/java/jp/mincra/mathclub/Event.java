@@ -3,7 +3,10 @@ package jp.mincra.mathclub;
 import discord4j.core.object.entity.Message;
 import jp.mincra.mathclub.commands.CommandHaruHaru;
 import jp.mincra.mathclub.commands.CommandHelp;
+import jp.mincra.mathclub.commands.CommandReload;
 import jp.mincra.mathclub.util.MathClubProperty;
+import org.json.JSONArray;
+import org.json.JSONObject;
 
 import java.io.IOException;
 
@@ -23,13 +26,7 @@ public class Event {
                     break;
 
                 case "!reload":
-                    try {
-                        MathClubProperty.reloadProperty();
-                        message.getChannel().block().createMessage("設定の再読み込みに成功しました。").block();
-                    } catch (IOException e) {
-                        e.printStackTrace();
-                        message.getChannel().block().createMessage("設定の再読み込みに失敗しました。").block();
-                    }
+                    CommandReload.CommandReload(message);
                     break;
             }
         }

@@ -16,7 +16,11 @@
     },
     {
       "command": "!reload",
-      "description": "設定を再読み込みします。"
+      "description": "設定を再読み込みします。",
+      "message": {
+        "success": ":recycle: **設定の再読み込みに成功しました**",
+        "failure": ":exclamation: **設定の再読み込みに失敗しました**"
+      }
     }
   ]
 }
