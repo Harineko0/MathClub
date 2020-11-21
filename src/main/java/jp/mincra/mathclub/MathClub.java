@@ -10,13 +10,13 @@ import jp.mincra.mathclub.commands.CommandSchedule;
 import jp.mincra.mathclub.util.MathClubProperty;
 
 import java.io.IOException;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
-import java.util.Timer;
-import java.util.TimerTask;
 
 public class MathClub {
+
+    public static GatewayDiscordClient client;
+    public static Date date = new Date();
 
     public static void main(String args[]) {
 
@@ -32,10 +32,10 @@ public class MathClub {
         String token = MathClubProperty.jsonNode.get("properties").get("token").asText();
 
         //client作成
-        GatewayDiscordClient client = DiscordClientBuilder.create(token).build().login().block();
+        client = DiscordClientBuilder.create(token).build().login().block();
 
-        //定期実行
-        CommandSchedule.CommandSchedule();
+        //時間割
+        CommandSchedule.CommandSchedule(date);
 
         //ログイン時のイベント
         client.getEventDispatcher().on(ReadyEvent.class)
@@ -51,5 +51,6 @@ public class MathClub {
         });
 
         client.onDisconnect().block();
+
     }
 }

@@ -8,7 +8,7 @@ import java.util.Random;
 
 public class CommandHaruHaru {
 
-    public static void createMessage(Message message) {
+    public static void CommandHaruHaru(Message message) {
 
         MessageChannel channel = message.getChannel().block();
 

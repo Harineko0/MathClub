@@ -1,6 +1,7 @@
 package jp.mincra.mathclub.commands;
 
 import discord4j.core.object.entity.Message;
+import discord4j.rest.util.Color;
 import jp.mincra.mathclub.util.MathClubProperty;
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -24,7 +25,10 @@ public class CommandHelp {
             result = result + command[i] + ": " + description[i] + "\n";
         }
 
-        message.getChannel().block().createMessage("```"+result+"```").block();
-
+        String finalResult = result;
+        message.getChannel().block().createEmbed(embedCreateSpec -> embedCreateSpec
+        .setTitle(":question: **HELP**")
+                .setDescription(finalResult)
+                .setColor(Color.RED)).block();
     }
 }
