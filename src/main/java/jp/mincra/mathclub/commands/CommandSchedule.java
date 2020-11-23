@@ -18,6 +18,7 @@ public class CommandSchedule {
 
     //起動時実行
     public static void CommandSchedule(Date date) {
+
         Calendar calendar = Calendar.getInstance();
         calendar.setTime(date);
 
@@ -60,52 +61,68 @@ public class CommandSchedule {
     }
 
     private static void runTask(Calendar calendar) {
-        calendar.add(Calendar.DATE,1);
+        //+2つずれてるから-2
         int intDay = calendar.get(Calendar.DAY_OF_WEEK);
         int intDate = calendar.get(Calendar.DATE);
-        int intMonth = calendar.get(Calendar.MONTH);
+        //-1つずれてるから+1
+        int intMonth = calendar.get(Calendar.MONTH)+1;
         String strDay = MathClubDate.getDayOfWeek(calendar);
 
-        if (intDay == 1 || intDay == 7 || JapaneseHolidayUtils.isNationalHoliday(calendar) == true) {
+        Snowflake snowflake = Snowflake.of(MathClubProperty.jsonNode.get("properties").get("channel").get("schedule").get("1-2").asText());
 
-            Snowflake snowflake = Snowflake.of(MathClubProperty.jsonNode.get("properties").get("channel").get("schedule").get("1-2").asText());
-            MathClub.client.getChannelById(snowflake).cast(TextChannel.class).flatMap(channel -> channel.createEmbed(embedCreateSpec -> embedCreateSpec
-                    .setTitle(":calendar_spiral: **" + intMonth + "月" + intDate + "日" + strDay + "曜日は休日です。**")
-                    .setColor(Color.GRAY))).block();
-
-            runTimer(calendar);
+        if (intDate % 2 == 0) {
+            //B週のとき
+            if (intDay == 1 || intDay == 7 || JapaneseHolidayUtils.isNationalHoliday(calendar) == true) {
+                //休日のとき
+                createHolidayMessage(snowflake,intMonth,intDate,strDay,calendar);
+            } else {
+                //日の時間割取得
+                JSONArray jsonArray = new JSONArray(MathClubProperty.jsonNode.get("schedule").get("b").get(intDay-2).toString());
+                //discordにメッセージ送信
+                createScheduleMessage(jsonArray,calendar,snowflake,intMonth,intDate,strDay);
+            }
 
         } else {
-            //A週B週
-            String ab;
-            if (intDate % 2 == 0) {
-                ab = "b";
+            //A週のとき
+            if (intDay == 7 || JapaneseHolidayUtils.isNationalHoliday(calendar) == true) {
+                //休日のとき
+                createHolidayMessage(snowflake,intMonth,intDate,strDay,calendar);
+                runTimer(calendar);
             } else {
-                ab = "a";
+                //日の時間割取得
+                JSONArray jsonArray = new JSONArray(MathClubProperty.jsonNode.get("schedule").get("a").get(intDay-2).toString());
+                //discordにメッセージ送信
+                createScheduleMessage(jsonArray,calendar,snowflake,intMonth,intDate,strDay);
             }
-
-            //日の時間割取得
-            JSONArray jsonArray = new JSONArray(MathClubProperty.jsonNode.get("schedule").get(ab).get(intDay).toString());
-
-            //時間割文字列生成
-            String result = "";
-            for (int i = 0; i < jsonArray.length(); i++) {
-                int j = i + 1;
-                result = result + j + "限: " + jsonArray.get(i) + "\n";
-            }
-
-            //メッセージ送信
-            String finalResult = result;
-            Snowflake snowflake = Snowflake.of(MathClubProperty.jsonNode.get("properties").get("channel").get("schedule").get("1-2").asText());
-            MathClub.client.getChannelById(snowflake).cast(TextChannel.class).flatMap(channel -> channel.createEmbed(embedCreateSpec -> embedCreateSpec
-                    .setTitle(":calendar_spiral: **" + intMonth + "月" + intDate + "日 " + strDay + "曜日の時間割**")
-                    .setDescription(finalResult)
-                    .setColor(Color.GRAY))).block();
-
-            calendar.set(Calendar.HOUR,8);
-            runTimer(calendar);
-
-            System.out.println(MathClub.date + "[LOG] " + intMonth + "月" + intDate + "日" + strDay + "曜日の時間割を送信しました。");
         }
+    }
+
+    private static void createHolidayMessage(Snowflake snowflake, int intMonth, int intDate, String strDay, Calendar calendar){
+        MathClub.client.getChannelById(snowflake).cast(TextChannel.class).flatMap(channel -> channel.createEmbed(embedCreateSpec -> embedCreateSpec
+                .setTitle(":calendar_spiral: **" + intMonth + "月" + intDate + "日" + strDay + "曜日は休日です。**")
+                .setColor(Color.GRAY))).block();
+
+        System.out.println(MathClub.date + "\n[LOG] " + intMonth + "月" + intDate + "日" + strDay + "曜日の休日メッセージを送信しました。");
+        runTimer(calendar);
+    }
+
+    private static void createScheduleMessage(JSONArray jsonArray, Calendar calendar, Snowflake snowflake, int intMonth, int intDate, String strDay){
+        //時間割文字列生成
+        String result = "";
+        for (int i = 0; i < jsonArray.length(); i++) {
+            int j = i + 1;
+            result = result + j + "限: " + jsonArray.get(i) + "\n";
+        }
+
+        String finalResult = result;
+        MathClub.client.getChannelById(snowflake).cast(TextChannel.class).flatMap(channel -> channel.createEmbed(embedCreateSpec -> embedCreateSpec
+                .setTitle(":calendar_spiral: **" + intMonth + "月" + intDate + "日 " + strDay + "曜日の時間割**")
+                .setDescription(finalResult)
+                .setColor(Color.GRAY))).block();
+
+        System.out.println(MathClub.date + "\n[LOG] " + intMonth + "月" + intDate + "日" + strDay + "曜日の時間割を送信しました。");
+
+        calendar.set(Calendar.HOUR, 8);
+        runTimer(calendar);
     }
 }

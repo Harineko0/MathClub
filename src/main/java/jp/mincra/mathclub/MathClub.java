@@ -20,6 +20,7 @@ public class MathClub {
 
     public static void main(String args[]) {
 
+
         //JSONロード
         try{
             MathClubProperty.setPropertyFile();
@@ -34,6 +35,8 @@ public class MathClub {
         //client作成
         client = DiscordClientBuilder.create(token).build().login().block();
 
+        //時差9時間
+        date.setHours(date.getHours()+MathClubProperty.jsonNode.get("properties").get("time_difference").asInt());
         //時間割
         CommandSchedule.CommandSchedule(date);
 
