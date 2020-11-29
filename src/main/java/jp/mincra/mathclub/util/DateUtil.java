@@ -3,7 +3,7 @@ package jp.mincra.mathclub.util;
 import java.util.Calendar;
 import java.util.Date;
 
-public class MathClubDate{
+public class DateUtil {
     public static String getDayOfWeek(Calendar calendar){
         switch (calendar.get(Calendar.DAY_OF_WEEK)) {
             case Calendar.SUNDAY: return "日";

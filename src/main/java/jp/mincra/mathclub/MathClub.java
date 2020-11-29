@@ -6,11 +6,10 @@ import discord4j.core.event.domain.lifecycle.ReadyEvent;
 import discord4j.core.event.domain.message.MessageCreateEvent;
 import discord4j.core.object.entity.Message;
 import discord4j.core.object.entity.User;
-import jp.mincra.mathclub.commands.CommandSchedule;
-import jp.mincra.mathclub.util.MathClubProperty;
+import jp.mincra.mathclub.objects.ScrapingForum;
+import jp.mincra.mathclub.util.PropertyUtil;
 
 import java.io.IOException;
-import java.util.Calendar;
 import java.util.Date;
 
 public class MathClub {
@@ -20,25 +19,26 @@ public class MathClub {
 
     public static void main(String args[]) {
 
+        ScrapingForum.ScrapingForum();
 
         //JSONロード
         try{
-            MathClubProperty.setPropertyFile();
-            MathClubProperty.reloadProperty();
+            PropertyUtil.setPropertyFile();
+            PropertyUtil.reloadProperty();
         } catch (IOException e) {
             e.printStackTrace();
         }
 
         //tokenロード
-        String token = MathClubProperty.jsonNode.get("properties").get("token").asText();
+        String token = PropertyUtil.jsonNode.get("properties").get("token").asText();
 
         //client作成
         client = DiscordClientBuilder.create(token).build().login().block();
 
         //時差9時間
-        date.setHours(date.getHours()+MathClubProperty.jsonNode.get("properties").get("time_difference").asInt());
+        date.setHours(date.getHours()+ PropertyUtil.jsonNode.get("properties").get("time_difference").asInt());
         //時間割
-        CommandSchedule.CommandSchedule(date);
+//        CommandSchedule.CommandSchedule(date);
 
         //ログイン時のイベント
         client.getEventDispatcher().on(ReadyEvent.class)
@@ -50,7 +50,7 @@ public class MathClub {
         //メッセージ送信時ののイベント
         client.on(MessageCreateEvent.class).subscribe(event -> {
             final Message message = event.getMessage();
-            Event.MessageCreate(message);
+            MathClubEvent.MessageCreate(message);
         });
 
         client.onDisconnect().block();

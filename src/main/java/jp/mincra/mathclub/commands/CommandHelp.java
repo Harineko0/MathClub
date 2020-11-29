@@ -2,7 +2,7 @@ package jp.mincra.mathclub.commands;
 
 import discord4j.core.object.entity.Message;
 import discord4j.rest.util.Color;
-import jp.mincra.mathclub.util.MathClubProperty;
+import jp.mincra.mathclub.util.PropertyUtil;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
@@ -10,7 +10,7 @@ public class CommandHelp {
 
     public static void CommandHelp(Message message) {
 
-        JSONArray jsonArray = new JSONArray(MathClubProperty.jsonNode.get("commands").toString());
+        JSONArray jsonArray = new JSONArray(PropertyUtil.jsonNode.get("commands").toString());
 
         String[] command = new String[jsonArray.length()];
         String[] description = new String[jsonArray.length()];

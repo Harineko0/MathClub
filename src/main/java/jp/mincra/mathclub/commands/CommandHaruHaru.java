@@ -2,7 +2,7 @@ package jp.mincra.mathclub.commands;
 
 import discord4j.core.object.entity.Message;
 import discord4j.core.object.entity.channel.MessageChannel;
-import jp.mincra.mathclub.util.MathClubProperty;
+import jp.mincra.mathclub.util.PropertyUtil;
 
 import java.util.Random;
 
@@ -13,7 +13,7 @@ public class CommandHaruHaru {
         MessageChannel channel = message.getChannel().block();
 
         //HaruHaruチャンネルのID読み込み
-        String HaruHaru = MathClubProperty.jsonNode.get("properties").get("channel").get("HaruHaru").asText();
+        String HaruHaru = PropertyUtil.jsonNode.get("properties").get("channel").get("HaruHaru").asText();
 
         if (message.getChannelId().toString().equals("Snowflake{"+ HaruHaru +"}")) {
             channel.createMessage(getString()+"！").block();

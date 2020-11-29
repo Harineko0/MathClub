@@ -5,7 +5,7 @@ import jp.mincra.mathclub.commands.CommandHaruHaru;
 import jp.mincra.mathclub.commands.CommandHelp;
 import jp.mincra.mathclub.commands.CommandReload;
 
-public class Event {
+public class MathClubEvent {
 
     public static void MessageCreate(Message message) {
 

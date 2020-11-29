@@ -10,7 +10,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.io.Writer;
 
-public class MathClubProperty {
+public class PropertyUtil {
 
     //JSONロード
     static String filePath = "./MathClub/MathClub.json";

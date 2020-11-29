@@ -1,7 +1,7 @@
 package jp.mincra.mathclub.commands;
 
 import discord4j.core.object.entity.Message;
-import jp.mincra.mathclub.util.MathClubProperty;
+import jp.mincra.mathclub.util.PropertyUtil;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
@@ -11,7 +11,7 @@ public class CommandReload {
 
     public static void CommandReload(Message message) {
 
-        JSONArray jsonArray = new JSONArray(MathClubProperty.jsonNode.get("commands").toString());
+        JSONArray jsonArray = new JSONArray(PropertyUtil.jsonNode.get("commands").toString());
         String success = new String();
         String failure = new String();
         
@@ -25,7 +25,7 @@ public class CommandReload {
         }
 
         try {
-            MathClubProperty.reloadProperty();
+            PropertyUtil.reloadProperty();
             message.getChannel().block().createMessage(success).block();
         } catch (IOException e) {
             e.printStackTrace();

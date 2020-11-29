@@ -4,8 +4,8 @@ import discord4j.common.util.Snowflake;
 import discord4j.core.object.entity.channel.TextChannel;
 import discord4j.rest.util.Color;
 import jp.mincra.mathclub.MathClub;
-import jp.mincra.mathclub.util.MathClubDate;
-import jp.mincra.mathclub.util.MathClubProperty;
+import jp.mincra.mathclub.util.DateUtil;
+import jp.mincra.mathclub.util.PropertyUtil;
 import jp.mincra.mathclub.util.holiday.JapaneseHolidayUtils;
 import org.json.JSONArray;
 
@@ -27,7 +27,7 @@ public class CommandSchedule {
             runTask(calendar);
         } else {
             //明日の時間割を16:00に実行
-            String string0 = MathClubProperty.jsonNode.get("properties").get("timer").get("schedule").asText();
+            String string0 = PropertyUtil.jsonNode.get("properties").get("timer").get("schedule").asText();
             String[] string1 = string0.split(":",0);
             calendar.set(Calendar.HOUR, Integer.parseInt(string1[0]));
             calendar.set(Calendar.MINUTE, Integer.parseInt(string1[1]));
@@ -41,7 +41,7 @@ public class CommandSchedule {
 
         calendar.add(calendar.DATE, 1);
         //時間指定
-        String string0 = MathClubProperty.jsonNode.get("properties").get("timer").get("schedule").asText();
+        String string0 = PropertyUtil.jsonNode.get("properties").get("timer").get("schedule").asText();
         String[] string1 = string0.split(":",0);
         calendar.set(Calendar.HOUR, Integer.parseInt(string1[0]));
         calendar.set(Calendar.MINUTE, Integer.parseInt(string1[1]));
@@ -66,9 +66,9 @@ public class CommandSchedule {
         int intDate = calendar.get(Calendar.DATE);
         //-1つずれてるから+1
         int intMonth = calendar.get(Calendar.MONTH)+1;
-        String strDay = MathClubDate.getDayOfWeek(calendar);
+        String strDay = DateUtil.getDayOfWeek(calendar);
 
-        Snowflake snowflake = Snowflake.of(MathClubProperty.jsonNode.get("properties").get("channel").get("schedule").get("1-2").asText());
+        Snowflake snowflake = Snowflake.of(PropertyUtil.jsonNode.get("properties").get("channel").get("schedule").get("1-2").asText());
 
         if (intDate % 2 == 0) {
             //B週のとき
@@ -77,7 +77,7 @@ public class CommandSchedule {
                 createHolidayMessage(snowflake,intMonth,intDate,strDay,calendar);
             } else {
                 //日の時間割取得
-                JSONArray jsonArray = new JSONArray(MathClubProperty.jsonNode.get("schedule").get("b").get(intDay-2).toString());
+                JSONArray jsonArray = new JSONArray(PropertyUtil.jsonNode.get("schedule").get("b").get(intDay-2).toString());
                 //discordにメッセージ送信
                 createScheduleMessage(jsonArray,calendar,snowflake,intMonth,intDate,strDay);
             }
@@ -90,7 +90,7 @@ public class CommandSchedule {
                 runTimer(calendar);
             } else {
                 //日の時間割取得
-                JSONArray jsonArray = new JSONArray(MathClubProperty.jsonNode.get("schedule").get("a").get(intDay-2).toString());
+                JSONArray jsonArray = new JSONArray(PropertyUtil.jsonNode.get("schedule").get("a").get(intDay-2).toString());
                 //discordにメッセージ送信
                 createScheduleMessage(jsonArray,calendar,snowflake,intMonth,intDate,strDay);
             }
