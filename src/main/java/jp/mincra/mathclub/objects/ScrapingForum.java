@@ -1,5 +1,6 @@
 package jp.mincra.mathclub.objects;
 
+import jp.mincra.mathclub.objects.beans.Thread;
 import jp.mincra.mathclub.util.PropertyUtil;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
@@ -11,17 +12,6 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
-
-//クラス型変数の定義
-class Thread {
-    int number;
-    int parent;
-    String subject;
-    String text;
-    String author;
-    Date date;
-    String url;
-}
 
 public class ScrapingForum {
     public static ArrayList threadArrayList = new ArrayList<Thread>();
@@ -36,33 +26,32 @@ public class ScrapingForum {
         }
         Elements fontElements = document.getElementsByTag("blockquote").select("font");
 
-        int i = 0;
         Thread thread = new Thread();
         int parent = 0;
         for (Element element : fontElements) {
 
-            thread.number = getNumber(element.text());
+            thread.setNumber(getNumber(element.text()));
             if (element.select("a").attr("href").isEmpty()){
                 //返信であるとき
-                thread.parent = parent;
+                thread.setParent(parent);
             } else {
                 //元スレであるとき
                 parent = getNumber(element.text());
-                thread.url = element.select("a").attr("href");
+                thread.setUrl(element.select("a").attr("href"));
             }
-            thread.subject = getSubject(element.text());
-            thread.text = getText(thread.number,thread.url);
-            thread.author = getAuthor(element.text());
-            thread.date = getDate(element.text());
+            thread.setSubject(getSubject(element.text()));
+            thread.setText(getText(thread.getNumber(),thread.getUrl()));
+            thread.setAuthor(getAuthor(element.text()));
+            thread.setDate(getDate(element.text()));
 
             System.out.println("\n"+element.text()
-                    +"\nURL: "+thread.url
-                    +"\nnumber: "+thread.number
-                    +"\nparent: "+thread.parent
-                    +"\ndate: "+thread.date.toString()
-                    +"\nauthor: "+thread.author
-                    +"\nsubject: "+thread.subject
-                    +"\ntext: "+thread.text);
+                    +"\nURL: "+thread.getUrl()
+                    +"\nnumber: "+thread.getNumber()
+                    +"\nparent: "+thread.getParent()
+                    +"\ndate: "+thread.getDate().toString()
+                    +"\nauthor: "+thread.getAuthor()
+                    +"\nsubject: "+thread.getSubject()
+                    +"\ntext: "+thread.getText());
 
             //リストに追加
             threadArrayList.add(thread);
