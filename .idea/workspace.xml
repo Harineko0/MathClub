@@ -6,13 +6,9 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2f036e4a-11f3-4b6b-8f7c-ebe5c0662228" name="Default Changelist" comment="">
+    <list default="true" id="2f036e4a-11f3-4b6b-8f7c-ebe5c0662228" name="Default Changelist" comment="引数を">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/jp/mincra/mathclub/MathClub.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/jp/mincra/mathclub/MathClub.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/jp/mincra/mathclub/MathClubEvent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/jp/mincra/mathclub/MathClubEvent.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/jp/mincra/mathclub/commands/CommandScrapingForum.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/jp/mincra/mathclub/commands/CommandScrapingForum.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/jp/mincra/mathclub/objects/ScrapingForum.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/jp/mincra/mathclub/objects/ScrapingForum.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/jp/mincra/mathclub/objects/beans/Thread.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/jp/mincra/mathclub/objects/beans/MCThread.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -157,7 +153,14 @@
       <option name="project" value="LOCAL" />
       <updated>1606659038528</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="idからforumのthreadをgetできるコマンドを追加">
+      <created>1606663148183</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1606663148183</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="Vcs.Log.History.Properties">
@@ -194,7 +197,8 @@
     <MESSAGE value="jsonからのみの時間割メッセージを送信できるように+時差を操作できるように" />
     <MESSAGE value="ScrapingForum.javaを追加。threadArrayListにスレの情報を保存できるように。" />
     <MESSAGE value="Threadクラス変数をjavabean化" />
-    <option name="LAST_COMMIT_MESSAGE" value="Threadクラス変数をjavabean化" />
+    <MESSAGE value="idからforumのthreadをgetできるコマンドを追加" />
+    <option name="LAST_COMMIT_MESSAGE" value="idからforumのthreadをgetできるコマンドを追加" />
   </component>
   <component name="WindowStateProjectService">
     <state x="780" y="22" key="#Project_Structure" timestamp="1605110405330">
@@ -233,30 +237,30 @@
       <screen x="0" y="0" width="1707" height="720" />
     </state>
     <state x="958" y="113" key="#com.intellij.refactoring.typeMigration.ui.FailedConversionsDialog/0.0.1707.720@0.0.1707.720" timestamp="1606587975472" />
-    <state x="0" y="0" key="CommitChangelistDialog2" timestamp="1606663116974">
+    <state x="0" y="0" key="CommitChangelistDialog2" timestamp="1606663174566">
       <screen x="0" y="0" width="1707" height="720" />
     </state>
-    <state x="0" y="0" key="CommitChangelistDialog2/0.0.1707.720@0.0.1707.720" timestamp="1606663116974" />
+    <state x="0" y="0" key="CommitChangelistDialog2/0.0.1707.720@0.0.1707.720" timestamp="1606663174566" />
     <state x="968" y="119" key="FileChooserDialogImpl" timestamp="1605265783953">
       <screen x="0" y="0" width="1707" height="720" />
     </state>
     <state x="968" y="119" key="FileChooserDialogImpl/0.0.1707.720@0.0.1707.720" timestamp="1605265783953" />
-    <state width="922" height="155" key="GridCell.Tab.0.bottom" timestamp="1606662797008">
+    <state width="922" height="155" key="GridCell.Tab.0.bottom" timestamp="1606663514106">
       <screen x="0" y="0" width="1707" height="720" />
     </state>
-    <state width="922" height="155" key="GridCell.Tab.0.bottom/0.0.1707.720@0.0.1707.720" timestamp="1606662797008" />
-    <state width="922" height="155" key="GridCell.Tab.0.center" timestamp="1606662797008">
+    <state width="922" height="155" key="GridCell.Tab.0.bottom/0.0.1707.720@0.0.1707.720" timestamp="1606663514106" />
+    <state width="922" height="155" key="GridCell.Tab.0.center" timestamp="1606663514106">
       <screen x="0" y="0" width="1707" height="720" />
     </state>
-    <state width="922" height="155" key="GridCell.Tab.0.center/0.0.1707.720@0.0.1707.720" timestamp="1606662797008" />
-    <state width="922" height="155" key="GridCell.Tab.0.left" timestamp="1606662797008">
+    <state width="922" height="155" key="GridCell.Tab.0.center/0.0.1707.720@0.0.1707.720" timestamp="1606663514106" />
+    <state width="922" height="155" key="GridCell.Tab.0.left" timestamp="1606663514106">
       <screen x="0" y="0" width="1707" height="720" />
     </state>
-    <state width="922" height="155" key="GridCell.Tab.0.left/0.0.1707.720@0.0.1707.720" timestamp="1606662797008" />
-    <state width="922" height="155" key="GridCell.Tab.0.right" timestamp="1606662797008">
+    <state width="922" height="155" key="GridCell.Tab.0.left/0.0.1707.720@0.0.1707.720" timestamp="1606663514106" />
+    <state width="922" height="155" key="GridCell.Tab.0.right" timestamp="1606663514106">
       <screen x="0" y="0" width="1707" height="720" />
     </state>
-    <state width="922" height="155" key="GridCell.Tab.0.right/0.0.1707.720@0.0.1707.720" timestamp="1606662797008" />
+    <state width="922" height="155" key="GridCell.Tab.0.right/0.0.1707.720@0.0.1707.720" timestamp="1606663514106" />
     <state width="1663" height="218" key="GridCell.Tab.1.bottom" timestamp="1606146856685">
       <screen x="0" y="0" width="1707" height="720" />
     </state>
@@ -289,10 +293,10 @@
       <screen x="0" y="0" width="1707" height="720" />
     </state>
     <state x="735" y="0" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.0.1707.720@0.0.1707.720" timestamp="1606657428646" />
-    <state x="997" y="281" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1606659065476">
+    <state x="997" y="281" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1606663151729">
       <screen x="0" y="0" width="1707" height="720" />
     </state>
-    <state x="997" y="281" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1707.720@0.0.1707.720" timestamp="1606659065476" />
+    <state x="997" y="281" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1707.720@0.0.1707.720" timestamp="1606663151729" />
     <state x="511" y="97" key="new project wizard" timestamp="1605259502800">
       <screen x="0" y="0" width="1707" height="720" />
     </state>

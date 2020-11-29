@@ -19,26 +19,35 @@ public class CommandScrapingForum {
         String[] args = message.getContent().split(" ");
         switch (args[2]){
             case "id":
-                getThread(message,Integer.parseInt(args[3]));
+                getThreadFromNumber(message,Integer.parseInt(args[3]));
         }
     }
 
-    public static void getThread(Message message, int number){
+    public static void getThreadFromNumber(Message message, int number){
         MCThread thread = new MCThread();
         for (MCThread mcThread : ScrapingForum.threadArrayList) {
             if (mcThread.getNumber() == number) {
                 thread = mcThread;
+                String subject = thread.getSubject();
+                String text = thread.getText();
+                String author = thread.getAuthor();
+                String url = thread.getUrl();
+                message.getChannel().block().createEmbed(embedCreateSpec -> embedCreateSpec
+                        .setTitle(subject)
+                        .setDescription(text)
+                        .setAuthor(author,url,"https://avatars1.githubusercontent.com/u/14019495?s=460&u=fa60eaf25e3de57740a783a9f7541cbaeb6990b2&v=4")
+                        .setColor(Color.DARK_GRAY)).block();
+                break;
+            } else {
+                thread = null;
+                message.getChannel().block().createEmbed(embedCreateSpec -> embedCreateSpec
+                        .setTitle(number+"のスレッドは存在しません")
+                        .setAuthor("","","https://avatars1.githubusercontent.com/u/14019495?s=460&u=fa60eaf25e3de57740a783a9f7541cbaeb6990b2&v=4")
+                        .setColor(Color.DARK_GRAY)).block();
+                break;
             }
         }
 
-        String subject = thread.getSubject();
-        String text = thread.getText();
-        String author = thread.getAuthor();
-        String url = thread.getUrl();
-        message.getChannel().block().createEmbed(embedCreateSpec -> embedCreateSpec
-                .setTitle(subject)
-                .setDescription(text)
-                .setAuthor(author,url,"https://avatars1.githubusercontent.com/u/14019495?s=460&u=fa60eaf25e3de57740a783a9f7541cbaeb6990b2&v=4")
-                .setColor(Color.WHITE)).block();
+
     }
 }
