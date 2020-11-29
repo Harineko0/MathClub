@@ -1,6 +1,6 @@
 package jp.mincra.mathclub.objects;
 
-import jp.mincra.mathclub.objects.beans.Thread;
+import jp.mincra.mathclub.objects.beans.MCThread;
 import jp.mincra.mathclub.util.PropertyUtil;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
@@ -12,9 +12,10 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 public class ScrapingForum {
-    public static ArrayList threadArrayList = new ArrayList<Thread>();
+    public static List<MCThread> threadArrayList = new ArrayList<MCThread>();
 
     public static void ScrapingForum() {
         System.out.println("-----Run Scraping-----");
@@ -26,9 +27,10 @@ public class ScrapingForum {
         }
         Elements fontElements = document.getElementsByTag("blockquote").select("font");
 
-        Thread thread = new Thread();
         int parent = 0;
+        String url = null;
         for (Element element : fontElements) {
+            MCThread thread = new MCThread();
 
             thread.setNumber(getNumber(element.text()));
             if (element.select("a").attr("href").isEmpty()){
@@ -37,8 +39,9 @@ public class ScrapingForum {
             } else {
                 //元スレであるとき
                 parent = getNumber(element.text());
-                thread.setUrl(element.select("a").attr("href"));
+                url = element.select("a").attr("href");
             }
+            thread.setUrl(url);
             thread.setSubject(getSubject(element.text()));
             thread.setText(getText(thread.getNumber(),thread.getUrl()));
             thread.setAuthor(getAuthor(element.text()));
@@ -56,6 +59,8 @@ public class ScrapingForum {
             //リストに追加
             threadArrayList.add(thread);
         }
+
+        System.out.println("test: "+threadArrayList.get(0).getNumber());
     }
 
     //スレ番号取得

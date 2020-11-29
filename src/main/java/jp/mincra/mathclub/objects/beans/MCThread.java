@@ -3,7 +3,7 @@ package jp.mincra.mathclub.objects.beans;
 import java.util.Date;
 
 //クラス型変数の定義
-public class Thread {
+public class MCThread {
     private int number;
     private int parent;
     private String subject;

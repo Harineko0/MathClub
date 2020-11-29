@@ -19,8 +19,6 @@ public class MathClub {
 
     public static void main(String args[]) {
 
-        ScrapingForum.ScrapingForum();
-
         //JSONロード
         try{
             PropertyUtil.setPropertyFile();
@@ -39,6 +37,9 @@ public class MathClub {
         date.setHours(date.getHours()+ PropertyUtil.jsonNode.get("properties").get("time_difference").asInt());
         //時間割
 //        CommandSchedule.CommandSchedule(date);
+
+        //掲示板
+        ScrapingForum.ScrapingForum();
 
         //ログイン時のイベント
         client.getEventDispatcher().on(ReadyEvent.class)
