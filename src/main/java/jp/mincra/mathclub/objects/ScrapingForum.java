@@ -15,14 +15,35 @@ import java.util.Date;
 import java.util.List;
 
 public class ScrapingForum {
-    public static List<MCThread> threadArrayList = new ArrayList<MCThread>();
+    public static List<MCThread> threadArrayList = new ArrayList<>();
 
     public static void ScrapingForum() {
-
-        for (int i=1; i<200; i+=10){
-            runScraping(PropertyUtil.jsonNode.get("properties").get("forum_url").asText()+"page="+i);
-            
+        for (int i=141; i<200; i+=10){
+            String url = PropertyUtil.jsonNode.get("properties").get("forum_url").asText()+"page="+i;
+            System.out.println("----- Order Scraping from "+url+" -----");
+            if (isExistForum(url)){
+                runScraping(url);
+            } else {
+                System.out.println("----- [ERROR] "+url+" doesn't exist -----");
+                break;
+            }
         }
+    }
+
+    //スレが存在するかどうか
+    public static boolean isExistForum(String urlStr){
+        Document document = null;
+        try {
+            document = Jsoup.connect(urlStr).get();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        if (document.getElementsByTag("blockquote").select("font").isEmpty()){
+            return false;
+        } else {
+            return true;
+        }
+
     }
 
     public static void runScraping(String forumUrl){
@@ -67,7 +88,7 @@ public class ScrapingForum {
             //リストに追加
             threadArrayList.add(thread);
         }
-//        System.out.println("test: "+threadArrayList.get(0).getNumber());
+        System.out.println("----- Finish Scraping from "+forumUrl+" -----");
     }
 
     //スレ番号取得
