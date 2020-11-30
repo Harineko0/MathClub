@@ -40,14 +40,13 @@ public class CommandScrapingForum {
                 break;
             } else {
                 thread = null;
-                message.getChannel().block().createEmbed(embedCreateSpec -> embedCreateSpec
-                        .setTitle(number+"のスレッドは存在しません")
-                        .setAuthor("","","https://avatars1.githubusercontent.com/u/14019495?s=460&u=fa60eaf25e3de57740a783a9f7541cbaeb6990b2&v=4")
-                        .setColor(Color.DARK_GRAY)).block();
-                break;
             }
         }
-
-
+        if (thread == null){
+            message.getChannel().block().createEmbed(embedCreateSpec -> embedCreateSpec
+                    .setTitle(number+"番のスレッドは存在しません")
+                    .setAuthor("","","https://avatars1.githubusercontent.com/u/14019495?s=460&u=fa60eaf25e3de57740a783a9f7541cbaeb6990b2&v=4")
+                    .setColor(Color.DARK_GRAY)).block();
+        }
     }
 }

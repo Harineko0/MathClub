@@ -18,10 +18,18 @@ public class ScrapingForum {
     public static List<MCThread> threadArrayList = new ArrayList<MCThread>();
 
     public static void ScrapingForum() {
-        System.out.println("-----Run Scraping-----");
+
+        for (int i=1; i<200; i+=10){
+            runScraping(PropertyUtil.jsonNode.get("properties").get("forum_url").asText()+"page="+i);
+            
+        }
+    }
+
+    public static void runScraping(String forumUrl){
+        System.out.println("----- Run Scraping from "+forumUrl+" -----");
         Document document = null;
         try {
-            document = Jsoup.connect(PropertyUtil.jsonNode.get("properties").get("forum_url").asText()).get();
+            document = Jsoup.connect(forumUrl).get();
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -59,8 +67,7 @@ public class ScrapingForum {
             //リストに追加
             threadArrayList.add(thread);
         }
-
-        System.out.println("test: "+threadArrayList.get(0).getNumber());
+//        System.out.println("test: "+threadArrayList.get(0).getNumber());
     }
 
     //スレ番号取得

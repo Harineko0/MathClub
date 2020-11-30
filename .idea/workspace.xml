@@ -6,9 +6,11 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2f036e4a-11f3-4b6b-8f7c-ebe5c0662228" name="Default Changelist" comment="引数を">
+    <list default="true" id="2f036e4a-11f3-4b6b-8f7c-ebe5c0662228" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/artifacts/MathClub_jar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/artifacts/MathClub_jar.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/jp/mincra/mathclub/commands/CommandScrapingForum.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/jp/mincra/mathclub/commands/CommandScrapingForum.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/jp/mincra/mathclub/objects/ScrapingForum.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/jp/mincra/mathclub/objects/ScrapingForum.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -160,7 +162,14 @@
       <option name="project" value="LOCAL" />
       <updated>1606663148183</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="存在しないスレ番号を引数に持った時のエラーメッセージを作成。getThreadメソッドをgetThreadFromNumberに変更。">
+      <created>1606663572850</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1606663572850</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="Vcs.Log.History.Properties">
@@ -198,7 +207,8 @@
     <MESSAGE value="ScrapingForum.javaを追加。threadArrayListにスレの情報を保存できるように。" />
     <MESSAGE value="Threadクラス変数をjavabean化" />
     <MESSAGE value="idからforumのthreadをgetできるコマンドを追加" />
-    <option name="LAST_COMMIT_MESSAGE" value="idからforumのthreadをgetできるコマンドを追加" />
+    <MESSAGE value="存在しないスレ番号を引数に持った時のエラーメッセージを作成。getThreadメソッドをgetThreadFromNumberに変更。" />
+    <option name="LAST_COMMIT_MESSAGE" value="存在しないスレ番号を引数に持った時のエラーメッセージを作成。getThreadメソッドをgetThreadFromNumberに変更。" />
   </component>
   <component name="WindowStateProjectService">
     <state x="780" y="22" key="#Project_Structure" timestamp="1605110405330">
@@ -237,30 +247,30 @@
       <screen x="0" y="0" width="1707" height="720" />
     </state>
     <state x="958" y="113" key="#com.intellij.refactoring.typeMigration.ui.FailedConversionsDialog/0.0.1707.720@0.0.1707.720" timestamp="1606587975472" />
-    <state x="0" y="0" key="CommitChangelistDialog2" timestamp="1606663174566">
+    <state x="0" y="0" key="CommitChangelistDialog2" timestamp="1606663572369">
       <screen x="0" y="0" width="1707" height="720" />
     </state>
-    <state x="0" y="0" key="CommitChangelistDialog2/0.0.1707.720@0.0.1707.720" timestamp="1606663174566" />
+    <state x="0" y="0" key="CommitChangelistDialog2/0.0.1707.720@0.0.1707.720" timestamp="1606663572369" />
     <state x="968" y="119" key="FileChooserDialogImpl" timestamp="1605265783953">
       <screen x="0" y="0" width="1707" height="720" />
     </state>
     <state x="968" y="119" key="FileChooserDialogImpl/0.0.1707.720@0.0.1707.720" timestamp="1605265783953" />
-    <state width="922" height="155" key="GridCell.Tab.0.bottom" timestamp="1606663514106">
+    <state width="922" height="555" key="GridCell.Tab.0.bottom" timestamp="1606733246049">
       <screen x="0" y="0" width="1707" height="720" />
     </state>
-    <state width="922" height="155" key="GridCell.Tab.0.bottom/0.0.1707.720@0.0.1707.720" timestamp="1606663514106" />
-    <state width="922" height="155" key="GridCell.Tab.0.center" timestamp="1606663514106">
+    <state width="922" height="555" key="GridCell.Tab.0.bottom/0.0.1707.720@0.0.1707.720" timestamp="1606733246049" />
+    <state width="922" height="555" key="GridCell.Tab.0.center" timestamp="1606733246049">
       <screen x="0" y="0" width="1707" height="720" />
     </state>
-    <state width="922" height="155" key="GridCell.Tab.0.center/0.0.1707.720@0.0.1707.720" timestamp="1606663514106" />
-    <state width="922" height="155" key="GridCell.Tab.0.left" timestamp="1606663514106">
+    <state width="922" height="555" key="GridCell.Tab.0.center/0.0.1707.720@0.0.1707.720" timestamp="1606733246049" />
+    <state width="922" height="555" key="GridCell.Tab.0.left" timestamp="1606733246048">
       <screen x="0" y="0" width="1707" height="720" />
     </state>
-    <state width="922" height="155" key="GridCell.Tab.0.left/0.0.1707.720@0.0.1707.720" timestamp="1606663514106" />
-    <state width="922" height="155" key="GridCell.Tab.0.right" timestamp="1606663514106">
+    <state width="922" height="555" key="GridCell.Tab.0.left/0.0.1707.720@0.0.1707.720" timestamp="1606733246048" />
+    <state width="922" height="555" key="GridCell.Tab.0.right" timestamp="1606733246049">
       <screen x="0" y="0" width="1707" height="720" />
     </state>
-    <state width="922" height="155" key="GridCell.Tab.0.right/0.0.1707.720@0.0.1707.720" timestamp="1606663514106" />
+    <state width="922" height="555" key="GridCell.Tab.0.right/0.0.1707.720@0.0.1707.720" timestamp="1606733246049" />
     <state width="1663" height="218" key="GridCell.Tab.1.bottom" timestamp="1606146856685">
       <screen x="0" y="0" width="1707" height="720" />
     </state>
@@ -281,22 +291,22 @@
       <screen x="0" y="0" width="1707" height="720" />
     </state>
     <state x="718" y="19" key="Maven.ArtifactSearchDialog/0.0.1707.720@0.0.1707.720" timestamp="1605980038179" />
-    <state x="315" y="0" key="SettingsEditor" timestamp="1605794721337">
+    <state x="315" y="0" key="SettingsEditor" timestamp="1606664676664">
       <screen x="0" y="0" width="1707" height="720" />
     </state>
-    <state x="315" y="0" key="SettingsEditor/0.0.1707.720@0.0.1707.720" timestamp="1605794721337" />
-    <state x="842" y="184" key="com.intellij.ide.util.TipDialog" timestamp="1606652355315">
+    <state x="315" y="0" key="SettingsEditor/0.0.1707.720@0.0.1707.720" timestamp="1606664676664" />
+    <state x="842" y="184" key="com.intellij.ide.util.TipDialog" timestamp="1606731737137">
       <screen x="0" y="0" width="1707" height="720" />
     </state>
-    <state x="842" y="184" key="com.intellij.ide.util.TipDialog/0.0.1707.720@0.0.1707.720" timestamp="1606652355315" />
+    <state x="842" y="184" key="com.intellij.ide.util.TipDialog/0.0.1707.720@0.0.1707.720" timestamp="1606731737137" />
     <state x="735" y="0" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1606657428646">
       <screen x="0" y="0" width="1707" height="720" />
     </state>
     <state x="735" y="0" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.0.1707.720@0.0.1707.720" timestamp="1606657428646" />
-    <state x="997" y="281" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1606663151729">
+    <state x="997" y="281" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1606664127558">
       <screen x="0" y="0" width="1707" height="720" />
     </state>
-    <state x="997" y="281" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1707.720@0.0.1707.720" timestamp="1606663151729" />
+    <state x="997" y="281" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1707.720@0.0.1707.720" timestamp="1606664127558" />
     <state x="511" y="97" key="new project wizard" timestamp="1605259502800">
       <screen x="0" y="0" width="1707" height="720" />
     </state>
