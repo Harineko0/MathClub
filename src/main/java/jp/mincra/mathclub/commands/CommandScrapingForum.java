@@ -12,14 +12,30 @@ public class CommandScrapingForum {
             case "get":
                 commandGet(message);
                 break;
+            case "load":
+                commandLoad(message);
+                break;
         }
     }
 
     private static void commandGet(Message message){
         String[] args = message.getContent().split(" ");
         switch (args[2]){
-            case "id":
+            case "number":
                 getThreadFromNumber(message,Integer.parseInt(args[3]));
+        }
+    }
+
+    private static void commandLoad(Message message){
+        String[] args = message.getContent().split(" ");
+        switch (args[2]) {
+            case "page":
+                int i = Integer.parseInt(args[3]);
+                if (i > 0) {
+                    ScrapingForum.ScrapingForum(i,message);
+                } else {
+                    message.getChannel().block().createMessage("**"+i+"番目のページは存在しません"+"**").block();
+                }
         }
     }
 

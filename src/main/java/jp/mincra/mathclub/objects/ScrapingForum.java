@@ -1,6 +1,12 @@
 package jp.mincra.mathclub.objects;
 
+import discord4j.common.util.Snowflake;
+import discord4j.core.object.entity.Message;
+import discord4j.core.object.entity.channel.TextChannel;
+import discord4j.rest.util.Color;
+import jp.mincra.mathclub.MathClub;
 import jp.mincra.mathclub.objects.beans.MCThread;
+import jp.mincra.mathclub.util.BinaryTreeUtil;
 import jp.mincra.mathclub.util.PropertyUtil;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
@@ -13,20 +19,38 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.Properties;
 
 public class ScrapingForum {
     public static List<MCThread> threadArrayList = new ArrayList<>();
+    public static BinaryTreeUtil threadBinaryTree = new BinaryTreeUtil();
+    static Snowflake snowflake = Snowflake.of(PropertyUtil.jsonNode.get("properties").get("channel").get("forum").asText());
 
-    public static void ScrapingForum() {
-        for (int i=141; i<200; i+=10){
+    public static void ScrapingForum(int page) {
+        for (int i=1; i<page*10-8; i+=10){
             String url = PropertyUtil.jsonNode.get("properties").get("forum_url").asText()+"page="+i;
             System.out.println("----- Order Scraping from "+url+" -----");
+            //discordログ
+            int finalI = 1+(i-1)/10;
+            MathClub.client.getChannelById(snowflake).cast(TextChannel.class).flatMap(channel -> channel.createMessage(finalI +"ページのロードを開始します...\n"+url)).block();
+
             if (isExistForum(url)){
                 runScraping(url);
             } else {
                 System.out.println("----- [ERROR] "+url+" doesn't exist -----");
+                MathClub.client.getChannelById(snowflake).cast(TextChannel.class).flatMap(channel -> channel.createMessage("[ERROR] "+finalI +"ページは存在しません\n")).block();
+
                 break;
             }
+        }
+    }
+
+    public static void ScrapingForum(int page, Message message){
+        String url = PropertyUtil.jsonNode.get("properties").get("forum_url").asText()+"page="+page;
+        if (isExistForum(url)){
+            ScrapingForum(page);
+        } else {
+//            message.getChannel().block().createMessage(page+"ページは存在しません").block();
         }
     }
 
@@ -48,6 +72,7 @@ public class ScrapingForum {
 
     public static void runScraping(String forumUrl){
         System.out.println("----- Run Scraping from "+forumUrl+" -----");
+        MathClub.client.getChannelById(snowflake).cast(TextChannel.class).flatMap(channel -> channel.createMessage("掲示板のロードを実行します...\n")).block();
         Document document = null;
         try {
             document = Jsoup.connect(forumUrl).get();
@@ -59,36 +84,47 @@ public class ScrapingForum {
         int parent = 0;
         String url = null;
         for (Element element : fontElements) {
-            MCThread thread = new MCThread();
+            int number = getNumber(element.text());
 
-            thread.setNumber(getNumber(element.text()));
-            if (element.select("a").attr("href").isEmpty()){
-                //返信であるとき
-                thread.setParent(parent);
+            //二分木に存在していたら追加
+            if (threadBinaryTree.contains(number)){
+                System.out.println("[ERROR] "+number+"番のスレは既にリストに存在しています。");
+//                MathClub.client.getChannelById(snowflake).cast(TextChannel.class).flatMap(channel -> channel.createMessage("[ERROR] "+number+"番のスレは既にリストに存在しています。")).block();
             } else {
-                //元スレであるとき
-                parent = getNumber(element.text());
-                url = element.select("a").attr("href");
+                MCThread thread = new MCThread();
+
+                thread.setNumber(number);
+                threadBinaryTree.add(number);
+
+                if (element.select("a").attr("href").isEmpty()) {
+                    //返信であるとき
+                    thread.setParent(parent);
+                } else {
+                    //元スレであるとき
+                    parent = getNumber(element.text());
+                    url = element.select("a").attr("href");
+                }
+                thread.setUrl(url);
+                thread.setSubject(getSubject(element.text()));
+                thread.setText(getText(thread.getNumber(), thread.getUrl()));
+                thread.setAuthor(getAuthor(element.text()));
+                thread.setDate(getDate(element.text()));
+
+                System.out.println("\n" + element.text()
+                        + "\nURL: " + thread.getUrl()
+                        + "\nnumber: " + thread.getNumber()
+                        + "\nparent: " + thread.getParent()
+                        + "\ndate: " + thread.getDate().toString()
+                        + "\nauthor: " + thread.getAuthor()
+                        + "\nsubject: " + thread.getSubject()
+                        + "\ntext: " + thread.getText());
+
+                //リストに追加
+                threadArrayList.add(thread);
             }
-            thread.setUrl(url);
-            thread.setSubject(getSubject(element.text()));
-            thread.setText(getText(thread.getNumber(),thread.getUrl()));
-            thread.setAuthor(getAuthor(element.text()));
-            thread.setDate(getDate(element.text()));
-
-            System.out.println("\n"+element.text()
-                    +"\nURL: "+thread.getUrl()
-                    +"\nnumber: "+thread.getNumber()
-                    +"\nparent: "+thread.getParent()
-                    +"\ndate: "+thread.getDate().toString()
-                    +"\nauthor: "+thread.getAuthor()
-                    +"\nsubject: "+thread.getSubject()
-                    +"\ntext: "+thread.getText());
-
-            //リストに追加
-            threadArrayList.add(thread);
         }
         System.out.println("----- Finish Scraping from "+forumUrl+" -----");
+        MathClub.client.getChannelById(snowflake).cast(TextChannel.class).flatMap(channel -> channel.createMessage("掲示板のロードが完了しました。\n")).block();
     }
 
     //スレ番号取得

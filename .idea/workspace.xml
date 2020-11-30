@@ -6,9 +6,11 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2f036e4a-11f3-4b6b-8f7c-ebe5c0662228" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/jp/mincra/mathclub/util/WebUtil.java" afterDir="false" />
+    <list default="true" id="2f036e4a-11f3-4b6b-8f7c-ebe5c0662228" name="Default Changelist" comment="スレッドが存在しないページは読み込まないように。isExistURL()を追加。">
+      <change afterPath="$PROJECT_DIR$/src/main/java/jp/mincra/mathclub/util/BinaryTreeUtil.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/jp/mincra/mathclub/MathClub.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/jp/mincra/mathclub/MathClub.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/jp/mincra/mathclub/commands/CommandScrapingForum.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/jp/mincra/mathclub/commands/CommandScrapingForum.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/jp/mincra/mathclub/objects/ScrapingForum.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/jp/mincra/mathclub/objects/ScrapingForum.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -175,7 +177,14 @@
       <option name="project" value="LOCAL" />
       <updated>1606733374269</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="スレッドが存在しないページは読み込まないように。isExistURL()を追加。">
+      <created>1606735752340</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1606735752340</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="Vcs.Log.History.Properties">
@@ -215,7 +224,9 @@
     <MESSAGE value="idからforumのthreadをgetできるコマンドを追加" />
     <MESSAGE value="存在しないスレ番号を引数に持った時のエラーメッセージを作成。getThreadメソッドをgetThreadFromNumberに変更。" />
     <MESSAGE value="掲示板内全ページ読み込むように修正" />
-    <option name="LAST_COMMIT_MESSAGE" value="掲示板内全ページ読み込むように修正" />
+    <MESSAGE value="スレッドが存在しないページは読み込まないように" />
+    <MESSAGE value="スレッドが存在しないページは読み込まないように。isExistURL()を追加。" />
+    <option name="LAST_COMMIT_MESSAGE" value="スレッドが存在しないページは読み込まないように。isExistURL()を追加。" />
   </component>
   <component name="WindowStateProjectService">
     <state x="780" y="22" key="#Project_Structure" timestamp="1605110405330">
@@ -254,30 +265,30 @@
       <screen x="0" y="0" width="1707" height="720" />
     </state>
     <state x="958" y="113" key="#com.intellij.refactoring.typeMigration.ui.FailedConversionsDialog/0.0.1707.720@0.0.1707.720" timestamp="1606587975472" />
-    <state x="0" y="0" key="CommitChangelistDialog2" timestamp="1606734542959">
+    <state x="0" y="0" key="CommitChangelistDialog2" timestamp="1606738817317">
       <screen x="0" y="0" width="1707" height="720" />
     </state>
-    <state x="0" y="0" key="CommitChangelistDialog2/0.0.1707.720@0.0.1707.720" timestamp="1606734542959" />
+    <state x="0" y="0" key="CommitChangelistDialog2/0.0.1707.720@0.0.1707.720" timestamp="1606738817317" />
     <state x="968" y="119" key="FileChooserDialogImpl" timestamp="1605265783953">
       <screen x="0" y="0" width="1707" height="720" />
     </state>
     <state x="968" y="119" key="FileChooserDialogImpl/0.0.1707.720@0.0.1707.720" timestamp="1605265783953" />
-    <state width="922" height="555" key="GridCell.Tab.0.bottom" timestamp="1606735687382">
+    <state width="1663" height="561" key="GridCell.Tab.0.bottom" timestamp="1606738672200">
       <screen x="0" y="0" width="1707" height="720" />
     </state>
-    <state width="922" height="555" key="GridCell.Tab.0.bottom/0.0.1707.720@0.0.1707.720" timestamp="1606735687382" />
-    <state width="922" height="555" key="GridCell.Tab.0.center" timestamp="1606735687381">
+    <state width="1663" height="561" key="GridCell.Tab.0.bottom/0.0.1707.720@0.0.1707.720" timestamp="1606738672200" />
+    <state width="1663" height="561" key="GridCell.Tab.0.center" timestamp="1606738672200">
       <screen x="0" y="0" width="1707" height="720" />
     </state>
-    <state width="922" height="555" key="GridCell.Tab.0.center/0.0.1707.720@0.0.1707.720" timestamp="1606735687381" />
-    <state width="922" height="555" key="GridCell.Tab.0.left" timestamp="1606735687381">
+    <state width="1663" height="561" key="GridCell.Tab.0.center/0.0.1707.720@0.0.1707.720" timestamp="1606738672200" />
+    <state width="1663" height="561" key="GridCell.Tab.0.left" timestamp="1606738672200">
       <screen x="0" y="0" width="1707" height="720" />
     </state>
-    <state width="922" height="555" key="GridCell.Tab.0.left/0.0.1707.720@0.0.1707.720" timestamp="1606735687381" />
-    <state width="922" height="555" key="GridCell.Tab.0.right" timestamp="1606735687381">
+    <state width="1663" height="561" key="GridCell.Tab.0.left/0.0.1707.720@0.0.1707.720" timestamp="1606738672200" />
+    <state width="1663" height="561" key="GridCell.Tab.0.right" timestamp="1606738672200">
       <screen x="0" y="0" width="1707" height="720" />
     </state>
-    <state width="922" height="555" key="GridCell.Tab.0.right/0.0.1707.720@0.0.1707.720" timestamp="1606735687381" />
+    <state width="1663" height="561" key="GridCell.Tab.0.right/0.0.1707.720@0.0.1707.720" timestamp="1606738672200" />
     <state width="1663" height="218" key="GridCell.Tab.1.bottom" timestamp="1606146856685">
       <screen x="0" y="0" width="1707" height="720" />
     </state>
