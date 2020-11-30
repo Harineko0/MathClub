@@ -28,7 +28,7 @@ public class MathClubEvent {
                     break;
 
                 case "!forum":
-                    CommandScrapingForum.CommandScrapingForum(message);
+                    CommandScrapingForum.CommandScrapingForum(message,args);
                     break;
             }
         }

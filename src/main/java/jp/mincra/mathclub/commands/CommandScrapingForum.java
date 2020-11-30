@@ -6,28 +6,25 @@ import jp.mincra.mathclub.objects.ScrapingForum;
 import jp.mincra.mathclub.objects.beans.MCThread;
 
 public class CommandScrapingForum {
-    public static void CommandScrapingForum(Message message){
-        String[] args = message.getContent().split(" ");
+    public static void CommandScrapingForum(Message message,String[] args){
         switch (args[1]){
             case "get":
-                commandGet(message);
+                commandGet(message,args);
                 break;
             case "load":
-                commandLoad(message);
+                commandLoad(message,args);
                 break;
         }
     }
 
-    private static void commandGet(Message message){
-        String[] args = message.getContent().split(" ");
+    private static void commandGet(Message message,String[] args){
         switch (args[2]){
             case "number":
                 getThreadFromNumber(message,Integer.parseInt(args[3]));
         }
     }
 
-    private static void commandLoad(Message message){
-        String[] args = message.getContent().split(" ");
+    private static void commandLoad(Message message,String[] args){
         switch (args[2]) {
             case "page":
                 int i = Integer.parseInt(args[3]);

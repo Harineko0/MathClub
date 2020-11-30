@@ -6,12 +6,13 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2f036e4a-11f3-4b6b-8f7c-ebe5c0662228" name="Default Changelist" comment="スレッドが存在しないページは読み込まないように。isExistURL()を追加。">
-      <change afterPath="$PROJECT_DIR$/src/main/java/jp/mincra/mathclub/util/BinaryTreeUtil.java" afterDir="false" />
+    <list default="true" id="2f036e4a-11f3-4b6b-8f7c-ebe5c0662228" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/jp/mincra/mathclub/MathClub.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/jp/mincra/mathclub/MathClub.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/jp/mincra/mathclub/MathClubEvent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/jp/mincra/mathclub/MathClubEvent.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/jp/mincra/mathclub/commands/CommandScrapingForum.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/jp/mincra/mathclub/commands/CommandScrapingForum.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/jp/mincra/mathclub/objects/ScrapingForum.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/jp/mincra/mathclub/objects/ScrapingForum.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/jp/mincra/mathclub/util/DateUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/jp/mincra/mathclub/util/DateUtil.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -184,7 +185,14 @@
       <option name="project" value="LOCAL" />
       <updated>1606735752340</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="BinaryTreeUtilを追加。!forum load pageコマンドを追加。!forum get idをget numberに変更。">
+      <created>1606738883257</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1606738883257</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="Vcs.Log.History.Properties">
@@ -226,7 +234,8 @@
     <MESSAGE value="掲示板内全ページ読み込むように修正" />
     <MESSAGE value="スレッドが存在しないページは読み込まないように" />
     <MESSAGE value="スレッドが存在しないページは読み込まないように。isExistURL()を追加。" />
-    <option name="LAST_COMMIT_MESSAGE" value="スレッドが存在しないページは読み込まないように。isExistURL()を追加。" />
+    <MESSAGE value="BinaryTreeUtilを追加。!forum load pageコマンドを追加。!forum get idをget numberに変更。" />
+    <option name="LAST_COMMIT_MESSAGE" value="BinaryTreeUtilを追加。!forum load pageコマンドを追加。!forum get idをget numberに変更。" />
   </component>
   <component name="WindowStateProjectService">
     <state x="780" y="22" key="#Project_Structure" timestamp="1605110405330">
@@ -265,30 +274,30 @@
       <screen x="0" y="0" width="1707" height="720" />
     </state>
     <state x="958" y="113" key="#com.intellij.refactoring.typeMigration.ui.FailedConversionsDialog/0.0.1707.720@0.0.1707.720" timestamp="1606587975472" />
-    <state x="0" y="0" key="CommitChangelistDialog2" timestamp="1606738817317">
+    <state x="528" y="0" key="CommitChangelistDialog2" timestamp="1606738882761">
       <screen x="0" y="0" width="1707" height="720" />
     </state>
-    <state x="0" y="0" key="CommitChangelistDialog2/0.0.1707.720@0.0.1707.720" timestamp="1606738817317" />
+    <state x="528" y="0" key="CommitChangelistDialog2/0.0.1707.720@0.0.1707.720" timestamp="1606738882761" />
     <state x="968" y="119" key="FileChooserDialogImpl" timestamp="1605265783953">
       <screen x="0" y="0" width="1707" height="720" />
     </state>
     <state x="968" y="119" key="FileChooserDialogImpl/0.0.1707.720@0.0.1707.720" timestamp="1605265783953" />
-    <state width="1663" height="561" key="GridCell.Tab.0.bottom" timestamp="1606738672200">
+    <state width="1663" height="561" key="GridCell.Tab.0.bottom" timestamp="1606746139858">
       <screen x="0" y="0" width="1707" height="720" />
     </state>
-    <state width="1663" height="561" key="GridCell.Tab.0.bottom/0.0.1707.720@0.0.1707.720" timestamp="1606738672200" />
-    <state width="1663" height="561" key="GridCell.Tab.0.center" timestamp="1606738672200">
+    <state width="1663" height="561" key="GridCell.Tab.0.bottom/0.0.1707.720@0.0.1707.720" timestamp="1606746139858" />
+    <state width="1663" height="561" key="GridCell.Tab.0.center" timestamp="1606746139858">
       <screen x="0" y="0" width="1707" height="720" />
     </state>
-    <state width="1663" height="561" key="GridCell.Tab.0.center/0.0.1707.720@0.0.1707.720" timestamp="1606738672200" />
-    <state width="1663" height="561" key="GridCell.Tab.0.left" timestamp="1606738672200">
+    <state width="1663" height="561" key="GridCell.Tab.0.center/0.0.1707.720@0.0.1707.720" timestamp="1606746139858" />
+    <state width="1663" height="561" key="GridCell.Tab.0.left" timestamp="1606746139858">
       <screen x="0" y="0" width="1707" height="720" />
     </state>
-    <state width="1663" height="561" key="GridCell.Tab.0.left/0.0.1707.720@0.0.1707.720" timestamp="1606738672200" />
-    <state width="1663" height="561" key="GridCell.Tab.0.right" timestamp="1606738672200">
+    <state width="1663" height="561" key="GridCell.Tab.0.left/0.0.1707.720@0.0.1707.720" timestamp="1606746139858" />
+    <state width="1663" height="561" key="GridCell.Tab.0.right" timestamp="1606746139858">
       <screen x="0" y="0" width="1707" height="720" />
     </state>
-    <state width="1663" height="561" key="GridCell.Tab.0.right/0.0.1707.720@0.0.1707.720" timestamp="1606738672200" />
+    <state width="1663" height="561" key="GridCell.Tab.0.right/0.0.1707.720@0.0.1707.720" timestamp="1606746139858" />
     <state width="1663" height="218" key="GridCell.Tab.1.bottom" timestamp="1606146856685">
       <screen x="0" y="0" width="1707" height="720" />
     </state>
@@ -313,10 +322,10 @@
       <screen x="0" y="0" width="1707" height="720" />
     </state>
     <state x="315" y="0" key="SettingsEditor/0.0.1707.720@0.0.1707.720" timestamp="1606664676664" />
-    <state x="842" y="184" key="com.intellij.ide.util.TipDialog" timestamp="1606734249334">
+    <state x="842" y="184" key="com.intellij.ide.util.TipDialog" timestamp="1606743520880">
       <screen x="0" y="0" width="1707" height="720" />
     </state>
-    <state x="842" y="184" key="com.intellij.ide.util.TipDialog/0.0.1707.720@0.0.1707.720" timestamp="1606734249334" />
+    <state x="842" y="184" key="com.intellij.ide.util.TipDialog/0.0.1707.720@0.0.1707.720" timestamp="1606743520880" />
     <state x="735" y="0" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1606657428646">
       <screen x="0" y="0" width="1707" height="720" />
     </state>
@@ -337,9 +346,9 @@
       <screen x="0" y="0" width="1707" height="720" />
     </state>
     <state x="835" y="163" key="run.anything.popup/0.0.1707.720@0.0.1707.720" timestamp="1606653853755" />
-    <state x="517" y="41" width="672" height="678" key="search.everywhere.popup" timestamp="1606661048902">
+    <state x="517" y="41" width="672" height="678" key="search.everywhere.popup" timestamp="1606745323998">
       <screen x="0" y="0" width="1707" height="720" />
     </state>
-    <state x="517" y="41" width="672" height="678" key="search.everywhere.popup/0.0.1707.720@0.0.1707.720" timestamp="1606661048902" />
+    <state x="517" y="41" width="672" height="678" key="search.everywhere.popup/0.0.1707.720@0.0.1707.720" timestamp="1606745323998" />
   </component>
 </project>

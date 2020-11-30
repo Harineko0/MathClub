@@ -7,7 +7,6 @@ import discord4j.core.event.domain.message.MessageCreateEvent;
 import discord4j.core.object.entity.Message;
 import discord4j.core.object.entity.User;
 import jp.mincra.mathclub.objects.ScrapingForum;
-import jp.mincra.mathclub.util.BinaryTreeUtil;
 import jp.mincra.mathclub.util.PropertyUtil;
 
 import java.io.IOException;
@@ -17,6 +16,7 @@ public class MathClub {
 
     public static GatewayDiscordClient client;
     public static Date date = new Date();
+
 
     public static void main(String args[]) {
 
@@ -34,13 +34,10 @@ public class MathClub {
         //client作成
         client = DiscordClientBuilder.create(token).build().login().block();
 
-        //時差9時間
+        //時差
         date.setHours(date.getHours()+ PropertyUtil.jsonNode.get("properties").get("time_difference").asInt());
         //時間割
 //        CommandSchedule.CommandSchedule(date);
-
-        //掲示板初期読み込み
-        ScrapingForum.ScrapingForum(1);
 
         //ログイン時のイベント
         client.getEventDispatcher().on(ReadyEvent.class)
@@ -48,6 +45,10 @@ public class MathClub {
                     User self = event.getSelf();
                     System.out.println(String.format("Logged in as %s#%s", self.getUsername(), self.getDiscriminator()));
                 });
+
+        //掲示板初期読み込み
+        ScrapingForum.ScrapingForum(2);
+        ScrapingForum.check = 0;
 
         //メッセージ送信時ののイベント
         client.on(MessageCreateEvent.class).subscribe(event -> {

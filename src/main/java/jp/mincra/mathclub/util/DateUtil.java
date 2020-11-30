@@ -1,7 +1,6 @@
 package jp.mincra.mathclub.util;
 
 import java.util.Calendar;
-import java.util.Date;
 
 public class DateUtil {
     public static String getDayOfWeek(Calendar calendar){

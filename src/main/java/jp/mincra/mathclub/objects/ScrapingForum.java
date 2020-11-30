@@ -16,15 +16,15 @@ import org.jsoup.select.Elements;
 import java.io.IOException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
-import java.util.Properties;
+import java.util.*;
 
 public class ScrapingForum {
     public static List<MCThread> threadArrayList = new ArrayList<>();
     public static BinaryTreeUtil threadBinaryTree = new BinaryTreeUtil();
     static Snowflake snowflake = Snowflake.of(PropertyUtil.jsonNode.get("properties").get("channel").get("forum").asText());
+
+    //scrapingが最初かどうか
+    public static int check = 1;
 
     public static void ScrapingForum(int page) {
         for (int i=1; i<page*10-8; i+=10){
@@ -32,13 +32,13 @@ public class ScrapingForum {
             System.out.println("----- Order Scraping from "+url+" -----");
             //discordログ
             int finalI = 1+(i-1)/10;
-            MathClub.client.getChannelById(snowflake).cast(TextChannel.class).flatMap(channel -> channel.createMessage(finalI +"ページのロードを開始します...\n"+url)).block();
+//            MathClub.client.getChannelById(snowflake).cast(TextChannel.class).flatMap(channel -> channel.createMessage(finalI +"ページのロードを開始します...\n"+url)).block();
 
             if (isExistForum(url)){
                 runScraping(url);
             } else {
                 System.out.println("----- [ERROR] "+url+" doesn't exist -----");
-                MathClub.client.getChannelById(snowflake).cast(TextChannel.class).flatMap(channel -> channel.createMessage("[ERROR] "+finalI +"ページは存在しません\n")).block();
+//                MathClub.client.getChannelById(snowflake).cast(TextChannel.class).flatMap(channel -> channel.createMessage("[ERROR] "+finalI +"ページは存在しません\n")).block();
 
                 break;
             }
@@ -72,7 +72,7 @@ public class ScrapingForum {
 
     public static void runScraping(String forumUrl){
         System.out.println("----- Run Scraping from "+forumUrl+" -----");
-        MathClub.client.getChannelById(snowflake).cast(TextChannel.class).flatMap(channel -> channel.createMessage("掲示板のロードを実行します...\n")).block();
+//        MathClub.client.getChannelById(snowflake).cast(TextChannel.class).flatMap(channel -> channel.createMessage("掲示板のロードを実行します...\n")).block();
         Document document = null;
         try {
             document = Jsoup.connect(forumUrl).get();
@@ -121,10 +121,21 @@ public class ScrapingForum {
 
                 //リストに追加
                 threadArrayList.add(thread);
+
+                //最初では無ければ通知
+                if (check == 0){
+                    MathClub.client.getChannelById(snowflake).cast(TextChannel.class).flatMap(channel -> channel.createEmbed(embedCreateSpec -> embedCreateSpec
+                            .setTitle(thread.getSubject())
+                            .setDescription(thread.getText())
+                            .setAuthor(thread.getAuthor(),thread.getUrl(),"https://avatars1.githubusercontent.com/u/14019495?s=460&u=fa60eaf25e3de57740a783a9f7541cbaeb6990b2&v=4")
+                            .setColor(Color.GRAY))).block();
+                }
             }
         }
+        //通知
+        ScrapingForum.runTimer();
         System.out.println("----- Finish Scraping from "+forumUrl+" -----");
-        MathClub.client.getChannelById(snowflake).cast(TextChannel.class).flatMap(channel -> channel.createMessage("掲示板のロードが完了しました。\n")).block();
+//        MathClub.client.getChannelById(snowflake).cast(TextChannel.class).flatMap(channel -> channel.createMessage("掲示板のロードが完了しました。\n")).block();
     }
 
     //スレ番号取得
@@ -234,5 +245,22 @@ public class ScrapingForum {
             }
         }
         return null;
+    }
+
+
+    //通知
+    public static void runTimer(){
+        Calendar calendar = Calendar.getInstance();
+        calendar.add(Calendar.MINUTE,10);
+        Date date = calendar.getTime();
+        Timer timer = new Timer(true);
+        TimerTask task = new TimerTask() {
+            @Override
+            public void run() {
+                ScrapingForum(1);
+                timer.cancel();
+            }
+        };
+        timer.schedule(task, date);
     }
 }
